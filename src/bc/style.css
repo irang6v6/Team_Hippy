@@ -7,6 +7,7 @@ html, body { background: #FFF url("https://codepen.io/images/classy_fabric.png")
     margin: 0;
 }
 
+
 button{
     border: 0;
     background-color: #FFF;
@@ -102,9 +103,24 @@ img{
     color: #fff;
     transition: 300ms ease-in-out;
 }
+.result2{
+    background: orange;
+    color: #fff;
+    transition: 300ms ease-in-out;
+}
+.result3{
+    background: orange;
+    color: #fff;
+    transition: 300ms ease-in-out;
+}
 
-
-.result:hover {
+.result.active:hover {
+    transform: rotate(180deg);
+}
+.result2.active:hover {
+    transform: rotate(180deg);
+}
+.result3.active:hover {
     transform: rotate(180deg);
 }
 
@@ -120,6 +136,13 @@ img{
 .check_list ul {
     display: flex;
 }
+.check_list2 ul {
+    display: flex;
+}
+.check_list3 ul {
+    display: flex;
+}
+
 .check_list li {
     margin-right: 8px;
     margin-bottom: 8px;
@@ -127,18 +150,57 @@ img{
     background-color: coral;
     border-radius: 5px;
 }
-
-.check_list li input {
-    display: none;
+.check_list2 li {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background-color: coral;
+    border-radius: 5px;
+}
+.check_list3 li {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background-color: coral;
+    border-radius: 5px;
 }
 
 .check_list{
     display: none;
 }
+.check_list2{
+    display: none;
+}
+.check_list3{
+    display: none;
+}
+
+.check_list button{
+    background-color: coral;
+    color: #FFF;
+    font-weight: bold;
+}
+.check_list2 button {
+    background-color: coral;
+    color: #FFF;
+    font-weight: bold;
+}
+.check_list3 button {
+    background-color: coral;
+    color: #FFF;
+    font-weight: bold;
+}
+
 .check_list.active {
     display: flex;
-
 }
+.check_list2.active {
+    display: flex;
+}
+.check_list3.active {
+    display: flex;
+}
+
 .search {
     width: 100%;
     display: flex;
@@ -160,117 +222,27 @@ img{
     justify-content: space-around;
 }
 
-
-.slides {
-    padding: 0;
-    width: 609px;
-    height: 420px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
+.container{
+    width: 300vw;
+    transition: transform 0.5s;
 }
 
-.slides * {
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.slides input { display: none; }
-
-.slide-container { display: block; }
-
-.slide {
-    top: 0;
-    opacity: 0;
-    width: 609px;
-    height: 420px;
-    display: block;
-    position: absolute;
-
-    transform: scale(0);
-
-    transition: all .7s ease-in-out;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-}
-
-.nav label {
-    width: 200px;
-    height: 100%;
-    display: none;
-    position: absolute;
-
-    opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-
-    transition: opacity .2s;
-
-    color: #FFF;
-    font-size: 156pt;
+.inner {
+    width: 100vw;
+    float: left;
     text-align: center;
-    line-height: 380px;
-    font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, .3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
-.slide:hover + .nav label { opacity: 0.5; }
-
-.nav label:hover { opacity: 1; }
-
-.nav .next { right: 0; }
-
-input:checked + .slide-container  .slide {
-    opacity: 1;
-
-    transform: scale(1);
-
-    transition: opacity 1s ease-in-out;
+.inner img {
+    width: 40%;
+    height: 500px;
 }
 
-input:checked + .slide-container .nav label { display: block; }
-
-.nav-dots {
-  width: 100%;
-  bottom: 9px;
-  height: 11px;
-  display: block;
-  position: absolute;
-  text-align: center;
+.sliderBtn {
+    display: flex;
+    justify-content: center;
 }
 
-.nav-dots .nav-dot {
-  top: -5px;
-  width: 11px;
-  height: 11px;
-  margin: 0 4px;
-  position: relative;
-  border-radius: 100%;
-  display: inline-block;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.nav-dots .nav-dot:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-input#img-1:checked ~ .nav-dots label#img-dot-1,
-input#img-2:checked ~ .nav-dots label#img-dot-2,
-input#img-3:checked ~ .nav-dots label#img-dot-3,
-input#img-4:checked ~ .nav-dots label#img-dot-4,
-input#img-5:checked ~ .nav-dots label#img-dot-5,
-input#img-6:checked ~ .nav-dots label#img-dot-6 {
-  background: rgba(0, 0, 0, 0.8);
-}
 
 @media screen and (max-width:768px) {
     .logobar{
@@ -311,5 +283,8 @@ input#img-6:checked ~ .nav-dots label#img-dot-6 {
         align-items: center;
     }
 
+    .inner img{
+        height: 40%;
+    }
 
 }
