@@ -1,0 +1,315 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+html, body { background: #FFF url("https://codepen.io/images/classy_fabric.png"); }
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+button{
+    border: 0;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+img{
+    width: 150px;
+}
+
+.logobar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    justify-content: space-between;
+    background-color: orange;
+    color: #FFF;
+    font-size: 24px;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.list > li {
+    margin-right: 24px;
+    padding: 8px 12px;
+}
+
+.list li:hover {
+    background-color: chocolate;
+    border-radius: 5px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    font-size: 12px;
+}
+.login button {
+    background: orange;
+    color: #FFF;
+}
+.login img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.welcome {
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.welcome p {
+    margin-bottom: 24px
+}
+.input > input {
+    width: 300px;
+}
+.input {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+.input button {
+    background-color: orange;
+    color: #FFF;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+.text.active{
+    background-color: coral;
+}
+.result{
+    background: orange;
+    color: #fff;
+    transition: 300ms ease-in-out;
+}
+
+
+.result:hover {
+    transform: rotate(180deg);
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    align-items: center;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.check_list ul {
+    display: flex;
+}
+.check_list li {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background-color: coral;
+    border-radius: 5px;
+}
+
+.check_list li input {
+    display: none;
+}
+
+.check_list{
+    display: none;
+}
+.check_list.active {
+    display: flex;
+
+}
+.search {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.search tr{
+    display: flex;
+    width: 100%;
+    margin: 10px;
+}
+.search td{
+  padding: 0;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.search span {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.slides {
+    padding: 0;
+    width: 609px;
+    height: 420px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 609px;
+    height: 420px;
+    display: block;
+    position: absolute;
+
+    transform: scale(0);
+
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+  width: 100%;
+  bottom: 9px;
+  height: 11px;
+  display: block;
+  position: absolute;
+  text-align: center;
+}
+
+.nav-dots .nav-dot {
+  top: -5px;
+  width: 11px;
+  height: 11px;
+  margin: 0 4px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width:768px) {
+    .logobar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .list{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .login{
+        position: absolute;
+        right: 32px;
+    }
+
+    .list li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .list.active{
+        display: flex;
+    }
+    
+    .search{
+        margin: 0;
+    }
+
+    .search tr {
+        display: flex;
+        flex-direction: column;
+    }
+    .search td{
+        display: flex;
+        align-items: center;
+    }
+
+
+}
