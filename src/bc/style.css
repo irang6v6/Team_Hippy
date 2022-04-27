@@ -7,6 +7,9 @@ html, body { background: #FFF url("https://codepen.io/images/classy_fabric.png")
     margin: 0;
 }
 
+table {
+    border: 1px solid red;
+}
 
 button{
     border: 0;
@@ -24,6 +27,14 @@ a{
 
 img{
     width: 150px;
+}
+
+.map{
+    border: 1px solid red;
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 0;
 }
 
 .logobar {
@@ -127,10 +138,17 @@ img{
 .checkbox{
     display: flex;
     flex-direction: column;
-    background-color: orange;
     align-items: center;
+    text-align: center;
     color: #FFF;
     font-weight: bold;
+}
+
+.undercheckbox{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background: orange;
 }
 
 .check_list ul {
@@ -144,22 +162,19 @@ img{
 }
 
 .check_list li {
-    margin-right: 8px;
-    margin-bottom: 8px;
+    margin: 8px 12px;
     padding: 8px 12px;
     background-color: coral;
     border-radius: 5px;
 }
 .check_list2 li {
-    margin-right: 8px;
-    margin-bottom: 8px;
+    margin: 8px 12px;
     padding: 8px 12px;
     background-color: coral;
     border-radius: 5px;
 }
 .check_list3 li {
-    margin-right: 8px;
-    margin-bottom: 8px;
+    margin: 8px 12px;
     padding: 8px 12px;
     background-color: coral;
     border-radius: 5px;
