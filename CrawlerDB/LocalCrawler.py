@@ -1,10 +1,10 @@
 from re import X
+import csv
 import requests
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-
 
 # 헤드 정보 받아오기
 headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
@@ -15,6 +15,11 @@ data = requests.get(url,headers=headers)
 
 ## soup = BeautifulSoup(data.text, 'html.parser')
 ## Search_data = soup.find_all('div', class_='panel-title font--droidserif') bs4 레거시 코드
+
+gu_list = ['마포구','서대문구','은평구','종로구','중구','용산구','성동구','광진구',
+           '동대문구','성북구','강북구','도봉구','노원구','중랑구','강동구','송파구',
+           '강남구','서초구','관악구','동작구','영등포구','금천구','구로구','양천구',
+           '강서구']
 
 ul = driver.find_elements_by_xpath('//*[@id="pagetop"]/div[3]/main/div[1]/div[1]/section/div[3]/section/div[2]/div[2]/div[4]/div/div/ul/li[1]')
 place_info = list()
@@ -45,5 +50,17 @@ for page_n in range(1, 7):
         print(place_info[place_id])
         place_id += 1
     
-
 print("검색 완료")
+print(place_info)
+
+#시간, 가격 재검색
+'''for a in place_info:
+    place_name = place_info[a][1]
+    driver.get("https://map.kakao.com/")'''
+
+#데이터 csv파일로 내보기
+f = open(f'PlaceData1.csv', 'w', encoding='utf-8', newline='')
+csvWriter = csv.writer(f)
+for i in place_info:
+    csvWriter.writerow(i)
+f.close()
