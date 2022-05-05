@@ -10,10 +10,12 @@ import lombok.Data;
 @Data
 @Entity(name="board")
 public class Board {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     String title;
     int articleNo;
+
 }

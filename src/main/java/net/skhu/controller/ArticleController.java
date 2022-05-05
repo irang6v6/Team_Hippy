@@ -1,27 +1,32 @@
 package net.skhu.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.skhu.repository.ArticleRepository;
 import net.skhu.dto.Pagination;
-import net.skhu.entity.Article;
+import net.skhu.service.ArticleService;
+import net.skhu.service.BoardService;
 
 @Controller
 @RequestMapping("article")
 public class ArticleController {
-	
-	@Autowired ArticleRepository articleRepository;
+
+	@Autowired ArticleService articleService;
+	@Autowired BoardService boardService;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
-    	List<Article> articles = articleRepository.findAll(pagination);
-        model.addAttribute("articles", articles);
+    	//model.addAttribute("board", boardService.findById(pagination.getBd()));
+    	model.addAttribute("articles", articleService.findAll(pagination));
         return "article/list";
     }
-    
+
+    @RequestMapping("detail")
+    public String detail(Model model, Pagination pagination) {
+
+    	return "article/detail";
+    }
+
 }
