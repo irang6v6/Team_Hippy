@@ -8,6 +8,8 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="${R}common2.js"></script>
   <style>
     div.panel { width: 1100px; }
     select:nth-child(1) { margin-left: 200px; }
@@ -48,7 +50,10 @@
         <form:hidden path="bd" value="${ pagination.bd }" />
         <button type="submit" class="btn2 cyan small">조회</button>
         <a class="btn2 small" href="list?bd=${pagination.bd}">초기화</a>
-
+        
+        <a class="btn2 blue small right" href="create?${pagination.queryString}">
+        <i class="fa fa-pencil-square-o"></i> 글 등록</a>
+        
         <form:select path="sz" class="right autosubmit">
           <form:option value="2" />
           <form:option value="3" />
