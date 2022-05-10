@@ -1,0 +1,90 @@
+:root{
+	--main-color:#443;
+	--border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+	--border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
+	--border:.2rem solid var(--main-color);
+	--border-hover:.2rem dashed var(--main-color);
+}
+
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: all .2s linear;
+}
+html{
+	font-size: 62.5%;
+	overflow: none;
+	scroll-padding-top: 7rem;
+	scroll-behavior: smooth;
+}
+.header{
+	top: 0; left: 0; right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fff;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+	padding: 2rem 9%;
+}
+
+.header .logo{
+	color: var(--main-color);
+	font-size: 2.3rem;
+}
+
+.header .logo i{
+	padding-left: .5rem;
+}
+
+.header .navbar a{
+	margin: 0 1rem;
+	font-size: 1.7rem;
+	color: var(--main-color);
+}
+
+header .btn{
+	margin-top: 0;
+}
+
+#menu-btn{
+	font-size: 3rem;
+	color: var(--main-color);
+	cursor: pointer;
+	display: none;
+}
+div.container { width: 800px; margin: 10px auto; font-size: 10pt; }
+
+.btn { padding: 0.4em 1em; border: 1px solid gray;           
+       border-radius: 0.5em; background: linear-gradient(#fff, #ddd); 
+       text-decoration: none; color: black;
+       display: inline-block; }
+       
+.btn:active {
+      -ms-transform: translateY(2px);
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
+      background: #ccc; }
+
+table.list { border-collapse: collapse; width: 100%; }
+table.list td { padding: 6px; border: 1px solid #ccc; }
+table.list th { padding: 6px; border: 1px solid #ccc;  background-color: #eee; }
+
+input { padding: 4px; }
+select { padding: 4px; }
+
+tr[data-url]:hover { cursor: pointer; background-color: #ffe; }
+.box { box-shadow: 0 0 4px lightgray, 2px 2px 4px gray; }
+
+table.pagination { border-collapse: collapse; margin-top: 1em; }
+table.pagination td { border: 1px solid #ccc; text-align: center; }
+table.pagination td.active { background-color: #48f; }
+table.pagination a { text-decoration: none; color: blue; display: inline-block; 
+                     width: 25px; padding: 6px; } 
+table.pagination td.active a { color: white; }
+
+
