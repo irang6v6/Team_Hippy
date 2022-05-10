@@ -31,7 +31,9 @@ public class ArticleService {
 
     public ArticleDto findById(int id) {
 
-        var article = articleRepository.findById(id).get();
+        Article article = articleRepository.findById(id).get();
+        article.increaseView();
+        //현재 조회수 증가가 작동 안됨
         
         return modelMapper.map(article, ArticleDto.class);
 
@@ -47,7 +49,7 @@ public class ArticleService {
 
 
     public List<ArticleDto> findAll(Pagination pagination) {
-
+    	//전체 게시글 조회, 페이지네이션
         int pg = pagination.getPg() - 1, sz = pagination.getSz(),
             si = pagination.getSi(), bd = pagination.getBd();
         String st = pagination.getSt();
@@ -68,7 +70,7 @@ public class ArticleService {
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public int insert(int boardId, ArticleEdit articleEdit) {
-    	
+    	//게시글 등록, 트랜잭션
         Board board = boardRepository.findById(boardId).get();
         int no = board.getArticleNo() + 1;
         board.setArticleNo(no);
@@ -79,6 +81,7 @@ public class ArticleService {
         article.setNo(no);
         article.setBoardId(boardId);
         article.setModifiedTime(new Date());
+        article.setView(0);
         articleRepository.save(article);
         
         return article.getId();
@@ -87,7 +90,7 @@ public class ArticleService {
 
     @Transactional
     public void update(ArticleEdit articleEdit) {
-    	
+    	//게시글 수정, 트랜잭션
         Article article;
         article = articleRepository.findById(articleEdit.getId()).get();
         article.setTitle(articleEdit.getTitle());
@@ -98,7 +101,7 @@ public class ArticleService {
     }
     
     public void deleteById(int id) {
-    	
+    	//게시글 삭제
         articleRepository.deleteById(id);
         
     }

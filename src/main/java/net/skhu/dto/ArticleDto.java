@@ -8,6 +8,7 @@ public class ArticleDto {
 	
 	int id;
 	int no;
+	int view;
 	String title;
 	Date modifiedTime;
 	String body;

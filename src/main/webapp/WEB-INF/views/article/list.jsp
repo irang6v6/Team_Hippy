@@ -10,6 +10,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="${R}common2.js"></script>
+  <link rel="stylesheet" href="${R}common2.css" />
   <style>
     div.panel { width: 1100px; }
     select:nth-child(1) { margin-left: 200px; }
@@ -44,7 +45,6 @@
         <form:select path="si">
           <form:option value="0" label="조회조건" />
           <form:option value="1" label="제목" />
-          <form:option value="2" label="글쓴이" />
         </form:select>
         <form:input path="st" />
         <form:hidden path="bd" value="${ pagination.bd }" />
@@ -72,6 +72,7 @@
             <th style="width: 7%;">no</th>
             <th style="width: 53%;">제목</th>
             <th style="width: 26%;">수정시각</th>
+            <th style="width: 26%;">조회수</th>
           </tr>
         </thead>
         <tbody> 
@@ -79,7 +80,8 @@
             <tr data-url="detail?id=${ article.id }&${ pagination.queryString }">
               <td>${ article.no }</td>
               <td>${ article.title }</td>
-              <td><fmt:formatDate value="${ article.modifiedTime }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+              <td><fmt:formatDate value="${ article.modifiedTime }" pattern="yy-MM-dd" /></td>
+              <td>${ article.view }</td>
             </tr>
           </c:forEach>         
         </tbody>

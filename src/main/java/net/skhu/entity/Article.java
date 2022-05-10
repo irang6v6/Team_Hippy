@@ -21,11 +21,15 @@ public class Article {
     int id;
 
     int no;
+    int view;
     Date modifiedTime;
     String title;
     int boardId;
 
     @Basic(fetch = FetchType.LAZY)
     String body;
-
+    
+    public void increaseView() {
+    	this.view++;
+    }
 }

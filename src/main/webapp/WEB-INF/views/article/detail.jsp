@@ -8,6 +8,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="${R}common2.css" />
   <style>
     article { margin-bottom: 100px; }
     article div.header { border-bottom: 1px solid lightgray; padding-bottom: 5px; margin-bottom: 20px; }
@@ -42,8 +43,43 @@
     <div class="body">${ article.body }</div>
     <a class="btn2 small" href="list?${pagination.queryString}">목록으로</a>
   </article>  
-  
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: 300,
+      minHeight: null,
+      maxHeight: null,
+      focus: true,
+      callbacks: {
+        onImageUpload: function(files, editor, welEditable) {
+          for (var i = files.length - 1; i >= 0; i--) {
+            sendFile(files[i], this);
+          }
+        }
+      }
+    });
+  });
+  
+  function sendFile(file, el) {
+    var form_data = new FormData();
+    form_data.append('file', file);
+    $.ajax({
+      data: form_data,
+      type: "POST",
+      url: '/image',
+      cache: false,
+      contentType: false,
+      enctype: 'multipart/form-data',
+      processData: false,
+      success: function(url) {
+        $(el).summernote('insertImage', url, function($image) {
+        	$image.css('width',50%);
+        });
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

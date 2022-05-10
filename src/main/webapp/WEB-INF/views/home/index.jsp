@@ -31,7 +31,7 @@
 
             <ul class="list">
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">List</a></li>
+                <li><a href="/article/list?bd=1">List</a></li>
                 <li><a href="#">Map</a></li>
                 <li><a href="#">Mypage</a></li>
             </ul>

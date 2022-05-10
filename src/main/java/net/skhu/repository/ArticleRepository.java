@@ -10,4 +10,5 @@ public interface ArticleRepository extends JpaRepository<Article, Integer>  {
 
     Page<Article> findByBoardId(int boardId, Pageable pageable);
     Page<Article> findByBoardIdAndTitleContains(int boardId, String title, Pageable pageable);
+    
 }
