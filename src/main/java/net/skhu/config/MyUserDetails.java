@@ -22,19 +22,17 @@ public class MyUserDetails implements UserDetails {
     final boolean isEnabled;
     Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-    final String name;
-    final String email;
+    final User user;
 
     public MyUserDetails(User user) {
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         for (UserRole userRole : user.getUserRoles())
-            authorities.add(new SimpleGrantedAuthority(userRole.getRole()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + userRole.getRole()));
         this.username = user.getLoginName();
         this.password = user.getPassword();
         this.isEnabled = user.isEnabled();
 
-        this.name = user.getName();
-        this.email = user.getEmail();
+        this.user = user;
     }
 }
 

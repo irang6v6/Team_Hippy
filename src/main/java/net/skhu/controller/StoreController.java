@@ -14,6 +14,7 @@ import net.skhu.entity.Store;
 import net.skhu.model.Pagination;
 import net.skhu.repository.LocationRepository;
 import net.skhu.repository.StoreRepository;
+import net.skhu.repository.StoreRepository2;
 import net.skhu.repository.TagRepository;
 
 @Controller
@@ -21,6 +22,7 @@ import net.skhu.repository.TagRepository;
 public class StoreController {
 
     @Autowired StoreRepository storeRepository;
+    @Autowired StoreRepository2 storeRepository2;
     @Autowired LocationRepository locationRepository;
     @Autowired TagRepository tagRepository;
 

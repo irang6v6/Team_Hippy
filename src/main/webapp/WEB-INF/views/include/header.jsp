@@ -6,7 +6,7 @@
 	<a href="${R}" class="logo">HIPPI <i class="fas fa-mug-hot"></i></a>
 
 	<nav class="navbar">
-		<a href="#">게시판</a>
+		<a href="${R}article/list?bd=1">게시판</a>
 		<span>|</span>
 		<a href="${R}store/list">힙플</a>
 		<span>|</span>

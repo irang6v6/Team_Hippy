@@ -46,15 +46,15 @@ div.buttons {
 <body>
 	<div class="container">
 		<form:form method="post" modelAttribute="store">
-			<div class="title">가게 ${ store.id > 0 ? "수정" : "등록" }</div>
+			<div class="title">가게 ${ store.id > 0 ? "정보" : "등록" }</div>
 			<table>
 				<tr>
 					<td>이름:</td>
-					<td><form:input path="name" /></td>
+					<td>${store.name}</td>
 				</tr>
 				<tr>
 					<td>주소:</td>
-					<td><form:input path="locate" style="width:420px" /></td>
+					<td>${store.locate}</td>
 				</tr>
 				<tr>
 					<td>구:</td>
@@ -63,7 +63,7 @@ div.buttons {
 				</tr>
 				<tr>
 					<td>시간:</td>
-					<td><form:input path="time" style="width:250px" /></td>
+					<td>${store.time}</td>
 				</tr>
 			</table>
 			<hr />
