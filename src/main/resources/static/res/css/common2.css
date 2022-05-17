@@ -1,0 +1,160 @@
+body { background-color: #eee; padding: 0; margin-top: 2px; }
+
+/********* menu ********************/
+div.main-menu {
+  border-bottom: 1px solid #ccc; padding: 0.5em 0;
+  background-color: #f8f8f8;
+}
+
+div.main-menu > ul {
+  width: 1200px; margin: 0px auto;
+  padding: 0;
+}
+
+div.main-menu li {
+  font-size: 11pt;
+  list-style-type: none;
+}
+
+div.main-menu li.title {
+  font-size: 16pt; padding: 0;
+}
+
+div.main-menu li.right {
+  float: right;
+}
+
+div.main-menu li:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+div.main-menu > ul > li {
+  display: inline-block; padding: 0.4em 1em;
+  min-width: 6em; text-align: center;	
+}
+
+div.main-menu li ul {
+  position: absolute; visibility: hidden;
+  margin-top: 2px; margin-left: 30px;
+  background-color: white;
+  border: 1px solid #ddd; 
+  padding: 4px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+div.main-menu li:hover ul {
+  visibility: visible;
+}
+
+div.main-menu li ul li {
+  display: block; text-align: left;
+  min-width: 10em; padding: 0.4em;
+}
+
+div.main-menu li.seperator {
+  height: 1px; padding: 0;
+  margin: 0.3em 0; border-top: 1px solid #ccc;      
+}
+/**********************************/
+
+div.container2 {
+	width: 1200px; margin: 0px auto; 
+	background-color: white;
+}
+
+select { border: 1px solid #aaa; padding: 6px 15px; font-size: 11pt; }
+input[type=text] { border: 1px solid #aaa; padding: 6px; font-size: 11pt; }
+input[type=password] { border: 1px solid #aaa; padding: 6px; font-size: 11pt; }
+
+textarea { border: 1px solid #aaa; padding: 6px; }
+
+.btn2 { 
+    border: 1px solid #ddd;           
+    background: linear-gradient(#fff, #d0d0d0); 
+    text-decoration: none; color: black;
+    display: inline-block; 
+}
+
+.btn2 { 
+	font-size: 11pt; padding: 0.6em 2em; border-radius: 0.5em; 
+}
+
+.btn2.small { 
+	padding: 0.4em 1em; border-radius: 0.3em; 
+}
+
+.btn2:active {
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    background: #ccc; 
+}
+
+.btn2.blue { 
+    color: white; border: none; background: linear-gradient(#8cf, #05c); 
+}
+.btn2.blue:active { background: #05c; }
+
+.btn2.green { 
+    color: white; border: none; background: linear-gradient(#8e8, #080); 
+}
+.btn2.green:active { background: #080; }
+
+.btn2.red { 
+    color: white; border: none; background: linear-gradient(#faa, #a00); 
+}
+.btn2.red:active { background: #800; }
+
+.btn2.yellow { 
+    color: black; border: 1px solid #eec; background: linear-gradient(#ffc, #dd0); 
+}
+.btn2.yellow:active { background: #dd0; }
+
+.btn2.cyan { 
+    color: white; border: none; background: linear-gradient(#0ee, #099); 
+}
+.btn2.cyan:active { background: #099; }
+
+.right { float: right; }
+
+ul.pagination { margin: 0; padding: 0; display: flex; }
+ul.pagination li { 
+  font-size: 11pt; color: #08f;
+  display: inline-block; border: 1px solid #ddd; border-right: none;
+  padding: 0.5em 0.9em; 
+  text-align: center;
+  cursor: pointer;
+}
+ul.pagination li:last-child { border: 1px solid #ddd; }
+
+ul.pagination li.active { color: white; background-color: #6ac; }
+ul.pagination li:hover { color: white; background-color: #26F; }  
+
+div.footer { 
+    border-top:1px solid #eee; padding:30px; font-size:10pt; color:#888; width: 100%;
+}
+
+[data-url]:hover { cursor: pointer; }
+tr[data-url]:hover { background-color: #ffc; }
+
+/*******/
+div.container2 { padding: 20px; }
+div.nav { 
+  padding: 5px; border-bottom: 1px solid #ddd; margin-bottom: 25px;
+}
+
+div.panel {width: 600px;  
+  margin-bottom: 50px;
+  border: 1px solid #ddd; border-radius: 5px;
+  box-shadow: 3px 3px 3px #ccc;
+}
+
+div.panel h1 {
+  margin: 0; font-size: 14pt; font-weight: bold; 
+  background:linear-gradient(90deg, #def, #bcd); padding: 10px 15px 7px 15px; 
+ }
+
+div.panel-body { padding: 20px; }
+  
+.error { color: #c00; margin-top: 10px;  }      
