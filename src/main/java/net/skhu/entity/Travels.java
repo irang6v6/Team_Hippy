@@ -14,21 +14,55 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="travels")
 public class Travels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     int no;
-    Date modifiedTime;
+    Date travels_regdate;
     String title;
     int boardId;
 
     @Basic(fetch = FetchType.LAZY)
-    String body;
+    String travels_content;
 
     @ManyToOne
     @JoinColumn(name = "userId")
     User user;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

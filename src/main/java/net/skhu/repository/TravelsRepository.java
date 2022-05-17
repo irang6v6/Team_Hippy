@@ -9,7 +9,7 @@ import net.skhu.entity.Travels;
 public interface TravelsRepository extends JpaRepository<Travels, Integer>  {
 
     Page<Travels> findByBoardId(int boardId, Pageable pageable);
-    Page<Travels> findByBoardIdAndUserNameStartsWith(int boardId, String userName, Pageable pageable);
+    Page<Travels> findByBoardIdAndUserIdStartsWith(int boardId, String userId, Pageable pageable);
     Page<Travels> findByBoardIdAndTitleContains(int boardId, String title, Pageable pageable);
 }
 

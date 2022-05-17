@@ -1,4 +1,4 @@
-package net.skhu.dto;
+package net.skhu.model;
 
 import java.util.Date;
 
@@ -9,8 +9,7 @@ public class TravelsDto {
     int id;
     int no;
     String title;
-    String userName;
-    Date modifiedTime;
-    String body;
+    String userId;
+    Date travels_regdate;
+    String travels_content;
 }
-
