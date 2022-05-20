@@ -12,7 +12,8 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
-<script src="https://kit.fontawesome.com/92bb2bf275.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/92bb2bf275.js"
+	crossorigin="anonymous"></script>
 <style>
 form {
 	margin-bottom: 5px;
@@ -24,10 +25,10 @@ a.btn {
 </style>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<div class="container">
-		
+
 		<form:form method="get" modelAttribute="pagination">
 			<form:hidden path="pg" value="1" />
 			<form:hidden path="sz" />
@@ -37,10 +38,21 @@ a.btn {
 				<form:options itemValue="id" itemLabel="location"
 					items="${ locations }" />
 			</form:select>
+			<br>
 			<span>태그:</span>
+			<br>
 			<form:radiobutton path="ti" value="0" label="전체" />
 			<form:radiobuttons path="ti" itemValue="id" class="form-control"
 				itemLabel="tagName" items="${ tags }" />
+			<br>
+			<form:radiobutton path="mi" value="0" label="전체" />
+			<form:radiobuttons path="mi" itemValue="id" class="form-control"
+				itemLabel="mood" items="${ moods }" />
+			<br>
+			<form:radiobutton path="pi" value="0" label="전체" />
+			<form:radiobuttons path="pi" itemValue="id" class="form-control"
+				itemLabel="party" items="${ partys }" />
+			<br>
 
 			<button type="submit" class="btn">검색</button>
 			<a href="create?${pagination.queryString}" class="btn">가게등록</a>
@@ -54,6 +66,8 @@ a.btn {
 					<th style="width: 70px">구</th>
 					<th>시간</th>
 					<th style="width: 50px">태그</th>
+					<th style="width: 80px">분위기</th>
+					<th style="width: 80px">인원수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,6 +79,8 @@ a.btn {
 						<td>${ store.location.location }</td>
 						<td>${ store.time }</td>
 						<td style="text-align: center;">${ store.tag.tagName}</td>
+						<td style="text-align: center;">${ store.mood.mood }</td>
+						<td style="text-align: center;">${ store.party.party }</td>
 
 					</tr>
 				</c:forEach>

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.skhu.model.ArticleEdit;
 import net.skhu.model.Pagination;
+import net.skhu.repository.LocationRepository;
 import net.skhu.service.ArticleService;
 import net.skhu.service.BoardService;
 
@@ -22,11 +23,13 @@ public class ArticleController {
 
     @Autowired BoardService boardService;
     @Autowired ArticleService articleService;
+    @Autowired LocationRepository locationRepository;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articles", articleService.findAll(pagination));
+        model.addAttribute("locations", locationRepository.findAll());
         return "article/list";
     }
 

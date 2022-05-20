@@ -31,4 +31,8 @@ public class Article {
     @ManyToOne
     @JoinColumn(name = "userId")
     User user;
+
+    @ManyToOne
+    @JoinColumn(name = "locationId")
+    Location location;
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import net.skhu.entity.Store;
 import net.skhu.model.Pagination;
 import net.skhu.repository.LocationRepository;
+import net.skhu.repository.MoodRepository;
+import net.skhu.repository.PartyRepository;
 import net.skhu.repository.StoreRepository;
 import net.skhu.repository.StoreRepository2;
 import net.skhu.repository.TagRepository;
@@ -25,6 +27,8 @@ public class StoreController {
     @Autowired StoreRepository2 storeRepository2;
     @Autowired LocationRepository locationRepository;
     @Autowired TagRepository tagRepository;
+    @Autowired MoodRepository moodRepository;
+    @Autowired PartyRepository partyRepository;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
@@ -32,6 +36,8 @@ public class StoreController {
         model.addAttribute("stores", stores);
         model.addAttribute("locations", locationRepository.findAll());
         model.addAttribute("tags", tagRepository.findAll());
+        model.addAttribute("moods", moodRepository.findAll());
+        model.addAttribute("partys", partyRepository.findAll());
         return "store/list";
     }
 

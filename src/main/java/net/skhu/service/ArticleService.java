@@ -45,10 +45,12 @@ public class ArticleService {
         String st = pagination.getSt();
         var pageRequest = PageRequest.of(pg, sz, orderBy);
         Page<Article> page = null;
-        if (si == 1)
+        if (si == 1 && pagination.getDi() == 0)
             page = articleRepository.findByBoardIdAndTitleContains(bd, st, pageRequest);
-        else if (si == 2)
+        else if (si == 2 && pagination.getDi() == 0)
             page = articleRepository.findByBoardIdAndUserNameStartsWith(bd, st, pageRequest);
+        else if (pagination.getDi() != 0)
+        	page = articleRepository. findByLocationIdAndTitleContains(pagination.getDi(),st, pageRequest);
         else
             page = articleRepository.findByBoardId(bd, pageRequest);
         pagination.setRecordCount((int)page.getTotalElements());

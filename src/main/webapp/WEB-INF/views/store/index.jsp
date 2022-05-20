@@ -4,6 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <c:url var="R" value="/" />
 <!DOCTYPE html PUBLIC>
@@ -108,7 +109,7 @@ th {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="store" items="${ stores }" begin="100" end="106">
+				<c:forEach var="store" items="${ stores }" begin="${fn:length(stores) - 5 }" end="${fn:length(stores)}">
 					<tr data-url="store/edit?id=${store.id}&${pagination.queryString}">
 						<td>${ store.id }</td>
 						<td>${ store.name }</td>
@@ -133,7 +134,7 @@ th {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="article" items="${ articles }" begin="0" end="4">
+				<c:forEach var="article" items="${ articles }" begin="${fn:length(articles) - 5}" end="${fn:length(articles)}">
          <tr data-url=http://localhost:8088/article/detail?id=${ article.id }&pg=1&sz=15&di=0&ti=0&si=0&od=0&bd=1&st=>
 						<td>${ article.no }</td>
 						<td>${ article.title }</td>

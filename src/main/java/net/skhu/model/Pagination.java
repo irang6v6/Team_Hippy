@@ -15,12 +15,14 @@ public class Pagination {
     String st = "";
     int di = 0;        // locationId
     int ti = 0;        // tagId
+    int mi = 0;        // moodId
+    int pi = 0;        // partyId
     int recordCount;   // 전체 레코드 수
 
 
     public String getQueryString() {
         try {
-            return String.format("pg=%d&sz=%d&di=%d&ti=%d&si=%d&od=%d&bd=%d&st=%s", pg, sz, di, ti, si, od, bd,
+            return String.format("pg=%d&sz=%d&di=%d&ti=%d&mi=%d&pi=%d&si=%d&od=%d&bd=%d&st=%s", pg, sz, di, ti, mi, pi, si, od, bd,
                     URLEncoder.encode(st, "UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
