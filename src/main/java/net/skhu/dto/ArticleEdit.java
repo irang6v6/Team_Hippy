@@ -17,5 +17,7 @@ public class ArticleEdit {
 
 	@NotEmpty(message="본문을 입력하세요")
 	String body;
-
+	
+	int locationId;
+	
 }

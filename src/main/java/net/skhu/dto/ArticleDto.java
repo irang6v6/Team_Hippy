@@ -12,5 +12,6 @@ public class ArticleDto {
 	String title;
 	Date modifiedTime;
 	String body;
+	String locationLocation;
 	
 }

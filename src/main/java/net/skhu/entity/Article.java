@@ -8,7 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
@@ -28,6 +29,10 @@ public class Article {
 
     @Basic(fetch = FetchType.LAZY)
     String body;
+    
+    @ManyToOne
+    @JoinColumn(name = "locationId")
+    Location location;
     
     public void increaseView() {
     	this.view++;

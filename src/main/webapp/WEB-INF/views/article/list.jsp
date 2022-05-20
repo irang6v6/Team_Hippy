@@ -42,6 +42,10 @@
     <div class="panel-body">
     
       <form:form method="get" modelAttribute="pagination">
+      	<form:select path="di">
+          <form:option value="0" label="전체" />
+          <form:options itemValue="id" itemLabel="location" items="${ locations }" />
+        </form:select>
         <form:select path="si">
           <form:option value="0" label="조회조건" />
           <form:option value="1" label="제목" />
@@ -71,8 +75,9 @@
           <tr>
             <th style="width: 7%;">no</th>
             <th style="width: 53%;">제목</th>
-            <th style="width: 26%;">수정시각</th>
-            <th style="width: 26%;">조회수</th>
+            <th style="width: 7%;">수정시각</th>
+            <th style="width: 7%;">지역구</th>
+            <th style="width: 7%;">조회수</th>
           </tr>
         </thead>
         <tbody> 
@@ -81,6 +86,7 @@
               <td>${ article.no }</td>
               <td>${ article.title }</td>
               <td><fmt:formatDate value="${ article.modifiedTime }" pattern="yy-MM-dd" /></td>
+              <td>${ article.locationLocation }</td>
               <td>${ article.view }</td>
             </tr>
           </c:forEach>         

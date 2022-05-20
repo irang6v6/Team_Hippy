@@ -15,6 +15,7 @@ import net.skhu.dto.ArticleEdit;
 import net.skhu.dto.Pagination;
 import net.skhu.service.ArticleService;
 import net.skhu.service.BoardService;
+import net.skhu.service.LocationService;
 
 @Controller
 @RequestMapping("article")
@@ -22,11 +23,13 @@ public class ArticleController {
 
 	@Autowired ArticleService articleService;
 	@Autowired BoardService boardService;
+	@Autowired LocationService locationService;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
-    	//model.addAttribute("board", boardService.findById(pagination.getBd()));
+    	model.addAttribute("board", boardService.findById(pagination.getBd()));
     	model.addAttribute("articles", articleService.findAll(pagination));
+    	model.addAttribute("locations", locationService.findAll());
         return "article/list";
     }
 

@@ -29,11 +29,11 @@ public class ArticleService {
 
     private static Sort orderBy = Sort.by(Sort.Direction.DESC, "id");
 
+    @Transactional
     public ArticleDto findById(int id) {
 
         Article article = articleRepository.findById(id).get();
         article.increaseView();
-        //현재 조회수 증가가 작동 안됨
         
         return modelMapper.map(article, ArticleDto.class);
 
@@ -47,16 +47,17 @@ public class ArticleService {
         
     }
 
-
     public List<ArticleDto> findAll(Pagination pagination) {
     	//전체 게시글 조회, 페이지네이션
-        int pg = pagination.getPg() - 1, sz = pagination.getSz(),
+        int pg = pagination.getPg() - 1, sz = pagination.getSz(), di = pagination.getDi(),
             si = pagination.getSi(), bd = pagination.getBd();
         String st = pagination.getSt();
         var pageRequest = PageRequest.of(pg, sz, orderBy);
         Page<Article> page = null;
-        if (si == 1)
+        if (si == 1 && di == 0)
             page = articleRepository.findByBoardIdAndTitleContains(bd, st, pageRequest);
+        else if (si == 1 && di != 0)
+        	page = articleRepository.findByLocationIdAndTitleContains(di, st , pageRequest);
         else
             page = articleRepository.findByBoardId(bd, pageRequest);
 
