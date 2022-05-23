@@ -54,7 +54,7 @@ public class StoreController {
     	storeRepository.save(store);
         pagination.setDi(0);
         pagination.setTi(0);
-        int lastPage = (int)Math.ceil((double)storeRepository.count() / pagination.getSz());
+        int lastPage = pagination.getPg();
         pagination.setPg(lastPage);
         return "redirect:list?" + pagination.getQueryString();
     }
@@ -65,6 +65,8 @@ public class StoreController {
         model.addAttribute("store", store);
         model.addAttribute("locations", locationRepository.findAll());
         model.addAttribute("tags", tagRepository.findAll());
+        model.addAttribute("moods", moodRepository.findAll());
+        model.addAttribute("partys", partyRepository.findAll());
         return "store/edit";
     }
 

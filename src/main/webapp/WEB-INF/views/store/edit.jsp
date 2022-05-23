@@ -44,17 +44,18 @@ div.buttons {
 </style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	<div class="container">
 		<form:form method="post" modelAttribute="store">
 			<div class="title">가게 ${ store.id > 0 ? "정보" : "등록" }</div>
 			<table>
 				<tr>
 					<td>이름:</td>
-					<td>${store.name}</td>
+					<td><form:input path="name" />${store.name}</td>
 				</tr>
 				<tr>
 					<td>주소:</td>
-					<td>${store.locate}</td>
+					<td><form:input path="locate" />${store.locate}</td>
 				</tr>
 				<tr>
 					<td>구:</td>
@@ -62,9 +63,36 @@ div.buttons {
 							itemLabel="location" items="${ locations }" /></td>
 				</tr>
 				<tr>
+					<td>태그:</td>
+					<td>
+					<form:radiobutton path="tag.id" value="1" label="#카페" />
+					<form:radiobutton path="tag.id" value="2" label="#맛잡" /> 
+					<form:radiobutton path="tag.id" value="3" label="#샵" /> 
+					<form:radiobutton path="tag.id" value="4" label="#전시" />
+					<form:radiobutton path="tag.id" value="5" label="#공연" />
+					<form:radiobutton path="tag.id" value="6" label="#스토어" />
+					</td>
+				<tr>
 					<td>시간:</td>
-					<td>${store.time}</td>
+					<td><form:input path="time" />${store.time}</td>
 				</tr>
+				<tr>
+					<td>분위기:</td>
+					<td>
+					<form:radiobutton path="mood.id" value="1" label="#차분한" />
+					<form:radiobutton path="mood.id" value="2" label="#화려한" /> 
+					<form:radiobutton path="mood.id" value="3" label="#조용한" /> 
+					<form:radiobutton path="mood.id" value="4" label="#활기찬" />
+					</td>
+				<tr>
+				<tr>
+					<td>인원수:</td>
+					<td>
+					<form:radiobutton path="party.id" value="1" label="#혼자서" />
+					<form:radiobutton path="party.id" value="2" label="#둘이서" /> 
+					<form:radiobutton path="party.id" value="3" label="#여럿이서" /> 
+					</td>
+				<tr>
 			</table>
 			<hr />
 			<div class="buttons">

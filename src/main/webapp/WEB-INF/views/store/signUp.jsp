@@ -11,7 +11,8 @@
   <link rel="stylesheet"  href="${R}res/css/common2.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
   <style>
-    div.container2 { padding: 20px; }
+  	body { background-color: white;}
+    div.container2 { padding: 20px;margin: 20px auto;}
     div.nav { 
       padding: 5px; border-bottom: 1px solid #ddd; margin-bottom: 25px;
     }
@@ -19,10 +20,11 @@
       width: 600px; margin-bottom: 50px;
       border: 1px solid #ddd; border-radius: 5px;
       box-shadow: 3px 3px 3px #ccc;
+      margin: 0px auto;
     }
     div.panel h1 {
       margin: 0; font-size: 14pt; font-weight: bold; 
-      background:linear-gradient(90deg, #def, #bcd); padding: 10px 15px 7px 15px;
+padding: 10px 15px 7px 15px;
     }
     div.panel-body {
       padding: 20px; font-size:
@@ -78,20 +80,16 @@
           <form:input path="email" placeholder="이메일 주소를 입력하세요" />
           <form:errors path="email" class="error" />
         </div>
+                <div>
+          <label>닉네임:</label>
+          <input type="text" placeholder="닉네임을 입력하세요">
+        </div>
         <button type="submit" class="btn2 blue"><i class="fa fa-user-plus"></i> 회원가입</button>
         <a href="${R}" class="btn2 cyan"><i class="fa fa-google"></i> google 계정으로 가입</a>
         <a href="${R}" class="btn2"><i class="fa fa-times"></i> 취소</a>
       </form:form>
    
     </div>
-  </div>  
-  
-  <div class="footer">
-    <div style="float: left; padding-right: 20px;">
-      <img src="${R}res/images/skhu.png" style="width: 200px; "/>
-    </div>
-    <div>152-716 서울시 구로구 연동로 320 / 지하철 1, 7호선 온수(성공회대입구)역 T.02-2610-4114</div>
-    <div style="margin-top: 5px;">Copyright (c) Sung-Kong-Hoe Univisity. All rights reserved.</div>
   </div>  
 </div>
 

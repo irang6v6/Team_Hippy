@@ -10,17 +10,17 @@
   <link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   <style>
+  body {background-color: white;}
     div.container2 { padding-top: 100px; }
     div.login-form {
       width: 800px; height: 500px;
-      background-color: #dee;
       margin: 0px auto 200px auto; text-align: center;
       border: 1px solid #ddd; border-radius: 5px;
       box-shadow: 3px 3px 3px #ccc;
     }
     div.login-form h1 {
       margin: 0; font-size: 14pt; font-weight: bold; 
-      background:linear-gradient(90deg, #def, #bcd); padding: 10px 15px 7px 15px;
+	 padding: 10px 15px 7px 15px;
     }
     div.login-form img {
       display: block; margin: 40px auto; 
@@ -29,8 +29,9 @@
         border: 2px solid #dee; border-radius: 8px; }
     div.login-form input:focus { border: 2px solid #aaf; outline: none; }
     div.login-form .btn2 { margin-top: 10px; padding: 0.7em 1.5em; }
-    div.input { position: relative; display: inline-block; }
+    div.input { position: relative; display: inline-block;margin:10px; }
     div.input i { position: absolute; left: 15px; top: 0.7em; color: gray; }
+    div.login-body {margin: 100px auto 0px auto;}
   </style>
 </head>
 
@@ -42,7 +43,6 @@
   <div class="login-form">
     <h1 class="login-header">힙플 게시판 로그인</h1>
     <div class="login-body">
-      <img src="${R}res/images/skhu_logo.png" style="width: 200px;" />
       <form method="post" action="${R}login_processing" >
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <div class="input">
@@ -59,13 +59,7 @@
     </div>
   </div>  
   
-  <div class="footer">
-    <div style="float: left; padding-right: 20px;">
-      <img src="${R}res/images/skhu.png" style="width: 200px; "/>
-    </div>
-    <div>152-716 서울시 구로구 연동로 320 / 지하철 1, 7호선 온수(성공회대입구)역 T.02-2610-4114</div>
-    <div style="margin-top: 5px;">Copyright (c) Sung-Kong-Hoe Univisity. All rights reserved.</div>
-  </div>  
+
 </div>
 
 </body>
