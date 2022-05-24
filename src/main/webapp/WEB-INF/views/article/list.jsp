@@ -96,6 +96,7 @@ td:nth-child(1), th:nth-child(1) {
 							<th style="width: 53%;">제목</th>
 							<th style="width: 15%;">작성자</th>
 							<th style="width: 26%;">수정시각</th>
+							<th style="width: 26%;">구</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -106,6 +107,7 @@ td:nth-child(1), th:nth-child(1) {
 								<td>${ article.userName }</td>
 								<td><fmt:formatDate value="${ article.modifiedTime }"
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
+									<td>${article.locationId }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

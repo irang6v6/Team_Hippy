@@ -44,6 +44,7 @@ public class ArticleController {
     public String create(Model model, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articleEdit", new ArticleEdit());
+        model.addAttribute("locations", locationRepository.findAll());
         return "article/create";
     }
 
@@ -61,6 +62,7 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
+        model.addAttribute("locations", locationRepository.findAll());
         return "article/create";
     }
 
@@ -68,6 +70,7 @@ public class ArticleController {
     public String edit(Model model, int id, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articleEdit", articleService.findById2(id));
+        model.addAttribute("locations", locationRepository.findAll());
         return "article/edit";
     }
 
@@ -85,6 +88,7 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
+        model.addAttribute("locations", locationRepository.findAll());
         return "article/edit";
     }
 

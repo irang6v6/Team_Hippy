@@ -12,5 +12,6 @@ public class ArticleDto {
     String userName;
     Date modifiedTime;
     String body;
+    int locationId;
 }
 

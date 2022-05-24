@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<%@ include file="/WEB-INF/views/include/mainMenu.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 <div class="container2">
 
@@ -46,7 +46,6 @@
         <i class="fa fa-check"></i> 저장</button>
 
     </form:form>
-
     <script>
       $("#summernote").summernote({ height: 700 });
 
