@@ -14,6 +14,8 @@
     article div.header { border-bottom: 1px solid lightgray; padding-bottom: 5px; margin-bottom: 20px; }
     article div.header span { margin-right: 50px; }
     article div.body { line-height: 2; margin-bottom: 30px; }
+    article .btn2 { margin-right: 5px; }
+    
   </style>
 </head>
 
@@ -27,14 +29,25 @@
   </div>
 
   <article>
+    <div class="error">${ error }</div>
     <a class="btn2 small right" href="list?${pagination.queryString}">
       <i class="fa fa-list-ul"></i> 목록으로</a>
+     <c:if test="${ permission.deleteGranted }">
+      <a class="btn2 small right red" 
+         href="delete?id=${travels.id}&${pagination.queryString}" data-confirm-delete>
+        <i class="fa fa-trash-o"></i> 삭제</a>
+    </c:if>
+    <c:if test="${ permission.updateGranted }">
+      <a class="btn2 small right blue" href="edit?id=${travels.id}&${pagination.queryString}">
+        <i class="fa fa-pencil-square-o"></i> 수정</a>
+    </c:if>              
+
     <h2>${ travels.title }</h2>
     <div class="header">
-       <span>${ article.userName }</span>
-       <span><fmt:formatDate value="${ travels.travels_regdate }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+       <span>${ travels.userName }</span>
+       <span><fmt:formatDate value="${ travels.regdate }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
     </div>
-    <div class="body">${ travels.travels_content }</div>
+    <div class="body">${ travels.content }</div>
   </article>  
   
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
