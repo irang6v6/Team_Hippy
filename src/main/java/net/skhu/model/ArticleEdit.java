@@ -9,6 +9,10 @@ import lombok.Data;
 public class ArticleEdit {
     int id;
     int boardId;
+    int locationId;
+    int tagId;
+    int moodId;
+    int partyId;
 
     @NotEmpty(message="제목을 입력하세요")
     @Size(min=1, max=200)

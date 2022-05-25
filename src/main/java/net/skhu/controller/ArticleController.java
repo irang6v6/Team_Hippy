@@ -13,7 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.skhu.model.ArticleEdit;
 import net.skhu.model.Pagination;
-import net.skhu.repository.LocationRepository;
+import net.skhu.repository.LocationArticleRepository;
+import net.skhu.repository.MoodRepository;
+import net.skhu.repository.PartyRepository;
+import net.skhu.repository.TagRepository;
 import net.skhu.service.ArticleService;
 import net.skhu.service.BoardService;
 
@@ -23,13 +26,19 @@ public class ArticleController {
 
     @Autowired BoardService boardService;
     @Autowired ArticleService articleService;
-    @Autowired LocationRepository locationRepository;
+    @Autowired LocationArticleRepository locationArticleRepository;
+    @Autowired TagRepository tagRepository;
+    @Autowired MoodRepository moodRepository;
+    @Autowired PartyRepository partyRepository;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articles", articleService.findAll(pagination));
-        model.addAttribute("locations", locationRepository.findAll());
+        model.addAttribute("locations", locationArticleRepository.findAll());
+        model.addAttribute("tags", tagRepository.findAll());
+        model.addAttribute("moods", moodRepository.findAll());
+        model.addAttribute("partys", partyRepository.findAll());
         return "article/list";
     }
 
@@ -44,7 +53,10 @@ public class ArticleController {
     public String create(Model model, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articleEdit", new ArticleEdit());
-        model.addAttribute("locations", locationRepository.findAll());
+        model.addAttribute("locations", locationArticleRepository.findAll());
+        model.addAttribute("tags", tagRepository.findAll());
+        model.addAttribute("moods", moodRepository.findAll());
+        model.addAttribute("partys", partyRepository.findAll());
         return "article/create";
     }
 
@@ -62,7 +74,6 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
-        model.addAttribute("locations", locationRepository.findAll());
         return "article/create";
     }
 
@@ -70,7 +81,6 @@ public class ArticleController {
     public String edit(Model model, int id, Pagination pagination) {
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("articleEdit", articleService.findById2(id));
-        model.addAttribute("locations", locationRepository.findAll());
         return "article/edit";
     }
 
@@ -88,7 +98,6 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
-        model.addAttribute("locations", locationRepository.findAll());
         return "article/edit";
     }
 

@@ -13,5 +13,8 @@ public class ArticleDto {
     Date modifiedTime;
     String body;
     int locationId;
+    int tagId;
+    int moodId;
+    int partyId;
 }
 
