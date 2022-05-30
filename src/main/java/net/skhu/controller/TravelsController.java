@@ -2,7 +2,6 @@ package net.skhu.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +17,12 @@ import net.skhu.service.BoardService;
 import net.skhu.service.TravelsService;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("travels")
 public class TravelsController {
 
-    @Autowired BoardService boardService;
-    @Autowired TravelsService travelsService;
+    private final BoardService boardService;
+    private final TravelsService travelsService;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
