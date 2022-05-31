@@ -49,10 +49,13 @@ public class Article {
     @ManyToOne
     @JoinColumn(name = "partyId")
     Party party;
+<<<<<<< HEAD
 
     @OneToMany(mappedBy="article")
     List<Comment> comments;
 
 
 
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
 }

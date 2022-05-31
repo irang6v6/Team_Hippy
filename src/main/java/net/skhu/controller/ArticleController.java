@@ -15,8 +15,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import net.skhu.entity.Comment;
 import net.skhu.model.ArticleEdit;
 import net.skhu.model.Pagination;
+<<<<<<< HEAD
 import net.skhu.repository.ArticleRepository;
 import net.skhu.repository.CommentRepository;
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
 import net.skhu.repository.LocationArticleRepository;
 import net.skhu.repository.MoodRepository;
 import net.skhu.repository.PartyRepository;
@@ -34,8 +37,11 @@ public class ArticleController {
     @Autowired TagRepository tagRepository;
     @Autowired MoodRepository moodRepository;
     @Autowired PartyRepository partyRepository;
+<<<<<<< HEAD
     @Autowired ArticleRepository articleRepository;
     @Autowired CommentRepository commentRepository;
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
@@ -45,7 +51,10 @@ public class ArticleController {
         model.addAttribute("tags", tagRepository.findAll());
         model.addAttribute("moods", moodRepository.findAll());
         model.addAttribute("partys", partyRepository.findAll());
+<<<<<<< HEAD
         model.addAttribute(articleService.getCurrentUserPermission());
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
         return "article/list";
     }
 
@@ -78,7 +87,10 @@ public class ArticleController {
         model.addAttribute("tags", tagRepository.findAll());
         model.addAttribute("moods", moodRepository.findAll());
         model.addAttribute("partys", partyRepository.findAll());
+<<<<<<< HEAD
         model.addAttribute("permission", permission);
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
         return "article/create";
     }
 
@@ -99,7 +111,10 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
+<<<<<<< HEAD
         model.addAttribute("permission", permission);
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
         return "article/create";
     }
 
@@ -109,8 +124,12 @@ public class ArticleController {
         if (permission.isUpdateGranted() == false)
             throw new AccessDeniedException("수정 권한 없음");
         model.addAttribute("board", boardService.findById(pagination.getBd()));
+<<<<<<< HEAD
         model.addAttribute("articleEdit", articleService.findByIdToEdit(id));
         model.addAttribute("permission", permission);
+=======
+        model.addAttribute("articleEdit", articleService.findById2(id));
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
         return "article/edit";
     }
 
@@ -132,7 +151,10 @@ public class ArticleController {
             bindingResult.reject(null, "저장할 수 없습니다.");
         }
         model.addAttribute("board", boardService.findById(pagination.getBd()));
+<<<<<<< HEAD
         model.addAttribute("permission", permission);
+=======
+>>>>>>> 967302cf820678e54230cee933756a9fadeb8ad2
         return "article/edit";
     }
 
