@@ -34,12 +34,9 @@ public class UserService {
 
     public UserEdit findById(int id) {
         var userEntity = userRepository.findById(id).get();
-        var userEdit = modelMapper.map(userEntity, UserEdit.class);
-        List<UserRole> userRole = userEntity.getUserRoles();
-        String[] roles = userRole.stream().map(UserRole::getRole).toArray(String[]::new);
-        userEdit.setRoles(roles);
-        return userEdit;
+        return modelMapper.map(userEntity, UserEdit.class);
     }
+
 
     public boolean hasErrors(UserSignUp userSignUp, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
@@ -125,9 +122,19 @@ public class UserService {
     }
 
     public User getCurrentUser() {
-        var myUserDetail = (MyUserDetails)SecurityContextHolder.getContext()
-                                                               .getAuthentication().getPrincipal();
-        return myUserDetail.getUser();
+        var principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof MyUserDetails) return ((MyUserDetails)principal).getUser();
+        return null;
     }
+
+    public boolean isCurrentUserAdmin() {
+        User user = getCurrentUser();
+        if (user == null) return false;
+        for (var userRole : user.getUserRoles())
+            if (userRole.getRole().equals("ROLE_ADMIN"))
+                return true;
+        return false;
+    }
+
 }
 

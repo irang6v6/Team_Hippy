@@ -65,12 +65,29 @@ td:nth-child(1), th:nth-child(1) {
 						<form:option value="30" />
 						<form:option value="100" />
 					</form:select>
+					<br>
 					<span>구:</span>
 					<form:select path="di" class="form-control">
 						<form:option value="0">전체</form:option>
 						<form:options itemValue="id" itemLabel="location"
 							items="${ locations }" />
 					</form:select>
+					<br>
+					<span>태그:</span>
+					<form:radiobutton path="ti" value="0" label="전체" />
+					<form:radiobuttons path="ti" itemValue="id" class="form-control"
+						itemLabel="tagName" items="${ tags }" />
+					<br>
+					<span>분위기</span>
+					<form:radiobutton path="mi" value="0" label="전체" />
+					<form:radiobuttons path="mi" itemValue="id" class="form-control"
+						itemLabel="mood" items="${ moods }" />
+					<br>
+					<span>인원수:</span>
+					<form:radiobutton path="pi" value="0" label="전체" />
+					<form:radiobuttons path="pi" itemValue="id" class="form-control"
+						itemLabel="party" items="${ partys }" />
+					<br>
 					<form:select path="si">
 						<form:option value="0" label="조회조건" />
 						<form:option value="1" label="제목" />
@@ -92,11 +109,14 @@ td:nth-child(1), th:nth-child(1) {
 				<table>
 					<thead>
 						<tr>
-							<th style="width: 7%;">no</th>
-							<th style="width: 53%;">제목</th>
+							<th style="width: 5%;">no</th>
+							<th style="width: 23%;">제목</th>
 							<th style="width: 15%;">작성자</th>
-							<th style="width: 26%;">수정시각</th>
-							<th style="width: 26%;">구</th>
+							<th style="width: 16%;">수정시각</th>
+							<th style="width: 10%;">구</th>
+							<th style="width: 10%;">태그</th>
+							<th style="width: 10%;">분위기</th>
+							<th style="width: 10%;">인원수</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -107,7 +127,10 @@ td:nth-child(1), th:nth-child(1) {
 								<td>${ article.userName }</td>
 								<td><fmt:formatDate value="${ article.modifiedTime }"
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
-									<td>${article.locationId }</td>
+								<td>${ article.locationId }</td>
+								<td>${ article.tagId }</td>
+								<td>${ article.moodId }</td>
+								<td>${ article.partyId }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

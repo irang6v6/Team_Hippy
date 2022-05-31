@@ -10,7 +10,7 @@
 		<span>|</span>
 		<a href="${R}store/list">힙플</a>
 		<span>|</span>
-		<a href="${R}store/list">후기</a>
+		<a href="${R}article/list?bd=2">후기</a>
 	</nav>
 	<sec:authorize access="not authenticated">  
 	<div>
