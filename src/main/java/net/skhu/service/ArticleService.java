@@ -29,11 +29,13 @@ public class ArticleService {
     @Autowired MyModelMapper modelMapper;
 
     private static Sort orderBy = Sort.by(Sort.Direction.DESC, "id");
+    private static Sort reverseBy = Sort.by(Sort.Direction.ASC, "id");
 
     public ArticleDto findById(int id) {
         var article = articleRepository.findById(id).get();
         return modelMapper.map(article, ArticleDto.class);
     }
+
 
     public ArticleEdit findByIdToEdit(int id)  {
         var article = articleRepository.findById(id).get();
@@ -153,6 +155,38 @@ public class ArticleService {
           	page = articleRepository. findByLocationIdAndTagIdAndMoodIdAndPartyId(di, ti, mi, pi, pageRequest);
         else
             page = articleRepository.findByBoardId(bd, pageRequest);
+        pagination.setRecordCount((int)page.getTotalElements());
+        List<Article> articleEntities = page.getContent();
+        List<ArticleDto> articleDtos = modelMapper.mapList(articleEntities, ArticleDto.class);
+        for (int i = 0; i < articleDtos.size(); ++i) {
+            Article article = articleEntities.get(i);
+            ArticleDto articleDto = articleDtos.get(i);
+            articleDto.setUserName(article.getUser().getName());
+        }
+        return articleDtos;
+    }
+
+    public List<ArticleDto> findAll2(Pagination pagination) {
+        int pg = pagination.getPg() - 1, sz = pagination.getSz();
+        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        Page<Article> page = null;
+            page = articleRepository.findByBoardId(1, pageRequest);
+        pagination.setRecordCount((int)page.getTotalElements());
+        List<Article> articleEntities = page.getContent();
+        List<ArticleDto> articleDtos = modelMapper.mapList(articleEntities, ArticleDto.class);
+        for (int i = 0; i < articleDtos.size(); ++i) {
+            Article article = articleEntities.get(i);
+            ArticleDto articleDto = articleDtos.get(i);
+            articleDto.setUserName(article.getUser().getName());
+        }
+        return articleDtos;
+    }
+
+    public List<ArticleDto> findAll3(Pagination pagination) {
+        int pg = pagination.getPg() - 1, sz = pagination.getSz();
+        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        Page<Article> page = null;
+            page = articleRepository.findByBoardId(2, pageRequest);
         pagination.setRecordCount((int)page.getTotalElements());
         List<Article> articleEntities = page.getContent();
         List<ArticleDto> articleDtos = modelMapper.mapList(articleEntities, ArticleDto.class);

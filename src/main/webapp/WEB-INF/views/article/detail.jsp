@@ -64,26 +64,24 @@ article .btn2 {
 	</div>
 
 	<div class="container">
-		<form:form method="post" modelAttribute="comments">
-			<div class="title">댓글 ${ comments.c_id > 0 ? "정보" : "등록" }</div>
+		<form:form method="post" modelAttribute="comment">
+			<div class="title">댓글 등록</div>
 			<table>
 				<tr>
 					<td>이름:</td>
-					<td><form:input path="user" />${comments.user}</td>
-				</tr>
-				<tr>
+					<td><form:input path="user" /></td>
 					<td>댓글:</td>
-					<td><form:input path="content" />${comments.content}</td>
-				</tr>
-				<tr>
-					<td><form:input path="article.id" value="${article.id }"
+					<td><form:input path="content" /></td>
+					<td>비밀번호:</td>
+					<td><form:input type="password" path="pwd" /></td>
+					<td><form:input path="article.id" value="${ article.id }"
 							type="hidden" /></td>
+					<td><div class="buttons">
+							<button type="submit" class="btn" name="cmd" value="save">저장</button>
+						</div></td>
 				</tr>
 			</table>
 			<hr />
-			<div class="buttons">
-				<button type="submit" class="btn" name="cmd" value="save">저장</button>
-			</div>
 		</form:form>
 	</div>
 
@@ -96,15 +94,17 @@ article .btn2 {
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${ articles[ i - 1 ].comments }">
+			<c:forEach var="comment" items="${ comments }">
 				<tr>
+					<td>${ comment.id }</td>
 					<td>${ comment.user }</td>
 					<td>${ comment.content }</td>
+					<td>${ comment.pwd }</td>
+					<td><a id="exid" href="delete2?id=${ comment.id }&k_id=${ comment.article.id }&${pagination.queryString}" data-value=${ comment.pwd } data-confirm-pwd>삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	</div>
 </body>
 </html>
 

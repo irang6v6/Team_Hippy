@@ -14,10 +14,11 @@ import lombok.Data;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int c_id;
+    int id;
 
     String user;
     String content;
+    String pwd;
 
     @ManyToOne
     @JoinColumn(name = "articleId")
