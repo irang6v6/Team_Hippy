@@ -20,7 +20,6 @@
     </sec:authorize>
         <sec:authorize access="authenticated">
         <span>
-      <img src="${R}res/images/pic-1.png" style="width: 50px;border-radius: 50%;"/><span>User</span>
       <a class="right" href="${R}logout_processing" style="font-size: 12px;">로그아웃</a></span>
     </sec:authorize>
     

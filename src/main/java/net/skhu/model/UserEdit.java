@@ -22,6 +22,10 @@ public class UserEdit {
     @Email(message="이메일 주소가 올바르지 않습니다")
     String email;
 
+    @NotEmpty(message="닉네임을 입력하세요")
+    @Size(min=3, max=15)
+    String nickName;
+
     boolean enabled;
     String[] roles;
 }

@@ -32,6 +32,16 @@ public class UserService {
     @Autowired PasswordEncoder passwordEncoder;
     @Autowired MyModelMapper modelMapper;
 
+    public UserDto findById2(int id) {
+        var userEntity = userRepository.findById(id).get();
+        var userDto = modelMapper.map(userEntity, UserDto.class);
+        List<UserRole> userRole = userEntity.getUserRoles();
+        String[] roles = userRole.stream().map(UserRole::getRole).toArray(String[]::new);
+        userDto.setRoles(roles);
+        return userDto;
+    }
+
+
     public UserEdit findById(int id) {
         var userEntity = userRepository.findById(id).get();
         return modelMapper.map(userEntity, UserEdit.class);
@@ -46,10 +56,16 @@ public class UserService {
             return true;
         }
         User user = userRepository.findByLoginName(userSignUp.getLoginName());
+        User nick = userRepository.findByNickName(userSignUp.getNickName());
         if (user != null) {
             bindingResult.rejectValue("loginName", null, "사용자 아이디가 중복됩니다.");
             return true;
         }
+        if (nick != null) {
+            bindingResult.rejectValue("nickName", null, "닉네임이 중복됩니다.");
+            return true;
+        }
+
         return false;
     }
 
@@ -67,6 +83,7 @@ public class UserService {
     public void save(UserSignUp userSignUp) {
         User user = modelMapper.map(userSignUp, User.class);
         user.setPassword(passwordEncoder.encode(userSignUp.getPasswd1()));
+        user.setEnabled(true);
         userRepository.save(user);
     }
 
@@ -76,6 +93,7 @@ public class UserService {
         user.setLoginName(userEdit.getLoginName());
         user.setName(userEdit.getName());
         user.setEmail(userEdit.getEmail());
+        user.setNickName(userEdit.getNickName());
         user.setEnabled(userEdit.isEnabled());
         userRoleRepository.deleteByUserId(user.getId());
         for (String role : userEdit.getRoles()) {

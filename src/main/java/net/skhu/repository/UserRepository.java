@@ -9,6 +9,7 @@ import net.skhu.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer>  {
 
     User findByLoginName(String loginName);
+    User findByNickName(String nickName);
     Page<User> findByLoginNameStartsWith(String loginName, Pageable pageable);
     Page<User> findByNameStartsWith(String loginName, Pageable pageable);
 }

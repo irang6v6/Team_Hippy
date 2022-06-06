@@ -3,6 +3,7 @@ package net.skhu.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,7 @@ public class StoreController {
         return "store/list";
     }
 
+    @Secured({"ROLE_ADMIN","ROLE_BESTUSER"})
     @GetMapping("create")
     public String create(Model model, Pagination pagination) {
         model.addAttribute("store", new Store());
@@ -49,6 +51,7 @@ public class StoreController {
         return "store/edit";
     }
 
+    @Secured({"ROLE_ADMIN","ROLE_BESTUSER"})
     @PostMapping("create")
     public String create(Model model, Store store, Pagination pagination) {
     	storeRepository.save(store);
@@ -70,12 +73,14 @@ public class StoreController {
         return "store/edit";
     }
 
+    @Secured({"ROLE_ADMIN","ROLE_BESTUSER"})
     @PostMapping(value="edit", params="cmd=save")
     public String edit(Model model, Store store, Pagination pagination) {
     	storeRepository.save(store);
         return "redirect:list?" + pagination.getQueryString();
     }
 
+    @Secured({"ROLE_ADMIN","ROLE_BESTUSER"})
     @PostMapping(value="edit", params="cmd=delete")
     public String delete(Model model, @RequestParam("id") int id, Pagination pagination) {
     	storeRepository.deleteById(id);

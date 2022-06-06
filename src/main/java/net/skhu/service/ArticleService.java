@@ -29,11 +29,13 @@ public class ArticleService {
     @Autowired MyModelMapper modelMapper;
 
     private static Sort orderBy = Sort.by(Sort.Direction.DESC, "id");
+    private static Sort reverseBy = Sort.by(Sort.Direction.ASC, "id");
 
     public ArticleDto findById(int id) {
         var article = articleRepository.findById(id).get();
         return modelMapper.map(article, ArticleDto.class);
     }
+
 
     public ArticleEdit findByIdToEdit(int id)  {
         var article = articleRepository.findById(id).get();
@@ -87,6 +89,12 @@ public class ArticleService {
         	page = articleRepository. findByLocationIdAndMoodIdAndTitleContains(di, mi, st, pageRequest);
         else if (si == 1 && di != 0 && ti == 0 && mi == 0 && pi != 0)
         	page = articleRepository. findByLocationIdAndPartyIdAndTitleContains(di, pi, st, pageRequest);
+        else if (si == 1 && di == 0 && ti != 0 && mi != 0 && pi == 0)
+        	page = articleRepository. findByTagIdAndMoodIdAndTitleContains(ti, mi, st, pageRequest);
+        else if (si == 1 && di == 0 && ti == 0 && mi != 0 && pi != 0)
+        	page = articleRepository. findByMoodIdAndPartyIdAndTitleContains(mi, pi, st, pageRequest);
+        else if (si == 1 && di == 0 && ti != 0 && mi == 0 && pi != 0)
+        	page = articleRepository. findByTagIdAndPartyIdAndTitleContains(ti, pi, st, pageRequest);
         else if (si == 1 && di != 0 && ti != 0 && mi != 0 && pi == 0)
         	page = articleRepository. findByLocationIdAndTagIdAndMoodIdAndTitleContains(di, ti, mi, st, pageRequest);
         else if (si == 1 && di != 0 && ti != 0 && mi == 0 && pi != 0)
@@ -99,31 +107,37 @@ public class ArticleService {
         	page = articleRepository. findByLocationIdAndTagIdAndMoodIdAndPartyIdAndTitleContains(di, ti, mi, pi, st, pageRequest);
 
         else if (si == 2 && di == 0 && ti == 0 && mi == 0 && pi == 0)
-            page = articleRepository.findByBoardIdAndUserNameStartsWith(bd, st, pageRequest);
+            page = articleRepository.findByBoardIdAndUserNickNameStartsWith(bd, st, pageRequest);
         else if (si == 2 && di != 0 && ti == 0 && mi == 0 && pi == 0)
-        	page = articleRepository.findByLocationIdAndUserNameStartsWith(di, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndUserNickNameStartsWith(di, st, pageRequest);
         else if (si == 2 && di == 0 && ti != 0 && mi == 0 && pi == 0)
-        	page = articleRepository.findByTagIdAndUserNameStartsWith(ti, st, pageRequest);
+        	page = articleRepository.findByTagIdAndUserNickNameStartsWith(ti, st, pageRequest);
         else if (si == 2 && di == 0 && ti == 0 && mi != 0 && pi == 0)
-        	page = articleRepository.findByMoodIdAndUserNameStartsWith(mi, st, pageRequest);
+        	page = articleRepository.findByMoodIdAndUserNickNameStartsWith(mi, st, pageRequest);
         else if (si == 2 && di == 0 && ti == 0 && mi == 0 && pi != 0)
-        	page = articleRepository.findByMoodIdAndUserNameStartsWith(pi, st, pageRequest);
+        	page = articleRepository.findByMoodIdAndUserNickNameStartsWith(pi, st, pageRequest);
         else if (si == 2 && di != 0 && ti != 0 && mi == 0 && pi == 0)
-        	page = articleRepository.findByLocationIdAndTagIdAndUserNameStartsWith(di, ti, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndTagIdAndUserNickNameStartsWith(di, ti, st, pageRequest);
         else if (si == 2 && di != 0 && ti == 0 && mi != 0 && pi == 0)
-        	page = articleRepository.findByLocationIdAndMoodIdAndUserNameStartsWith(di, mi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndMoodIdAndUserNickNameStartsWith(di, mi, st, pageRequest);
         else if (si == 2 && di != 0 && ti == 0 && mi == 0 && pi != 0)
-        	page = articleRepository.findByLocationIdAndPartyIdAndUserNameStartsWith(di, pi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndPartyIdAndUserNickNameStartsWith(di, pi, st, pageRequest);
+        else if (si == 2 && di == 0 && ti != 0 && mi != 0 && pi == 0)
+        	page = articleRepository.findByTagIdAndMoodIdAndUserNickNameStartsWith(ti, mi, st, pageRequest);
+        else if (si == 2 && di == 0 && ti == 0 && mi != 0 && pi != 0)
+        	page = articleRepository.findByMoodIdAndPartyIdAndUserNickNameStartsWith(mi, pi, st, pageRequest);
+        else if (si == 2 && di == 0 && ti != 0 && mi == 0 && pi != 0)
+        	page = articleRepository.findByTagIdAndPartyIdAndUserNickNameStartsWith(ti, pi, st, pageRequest);
         else if (si == 2 && di != 0 && ti != 0 && mi != 0 && pi == 0)
-        	page = articleRepository.findByLocationIdAndTagIdAndMoodIdAndUserNameStartsWith(di, ti, mi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndTagIdAndMoodIdAndUserNickNameStartsWith(di, ti, mi, st, pageRequest);
         else if (si == 2 && di != 0 && ti != 0 && mi == 0 && pi != 0)
-        	page = articleRepository.findByLocationIdAndTagIdAndPartyIdAndUserNameStartsWith(di, ti, pi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndTagIdAndPartyIdAndUserNickNameStartsWith(di, ti, pi, st, pageRequest);
         else if (si == 2 && di != 0 && ti == 0 && mi != 0 && pi != 0)
-        	page = articleRepository.findByLocationIdAndMoodIdAndPartyIdAndUserNameStartsWith(di, mi, pi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndMoodIdAndPartyIdAndUserNickNameStartsWith(di, mi, pi, st, pageRequest);
         else if (si == 2 && di == 0 && ti != 0 && mi != 0 && pi != 0)
-        	page = articleRepository.findByTagIdAndMoodIdAndPartyIdAndUserNameStartsWith(ti, mi, pi, st, pageRequest);
+        	page = articleRepository.findByTagIdAndMoodIdAndPartyIdAndUserNickNameStartsWith(ti, mi, pi, st, pageRequest);
         else if (si == 2 && di != 0 && ti != 0 && mi != 0 && pi != 0)
-        	page = articleRepository.findByLocationIdAndTagIdAndMoodIdAndPartyIdAndUserNameStartsWith(di, ti, mi, pi, st, pageRequest);
+        	page = articleRepository.findByLocationIdAndTagIdAndMoodIdAndPartyIdAndUserNickNameStartsWith(di, ti, mi, pi, st, pageRequest);
 
         else if (si == 0 && di != 0 && ti == 0 && mi == 0 && pi == 0)
           	page = articleRepository. findByLocationId(di, pageRequest);
@@ -140,6 +154,12 @@ public class ArticleService {
           	page = articleRepository. findByLocationIdAndMoodId(di, mi, pageRequest);
         else if (si == 0 && di != 0 && ti == 0 && mi == 0 && pi != 0)
           	page = articleRepository. findByLocationIdAndPartyId(di, pi, pageRequest);
+        else if (si == 0 && di == 0 && ti != 0 && mi != 0 && pi == 0)
+          	page = articleRepository. findByTagIdAndMoodId(ti, mi, pageRequest);
+        else if (si == 0 && di == 0 && ti != 0 && mi == 0 && pi != 0)
+          	page = articleRepository. findByTagIdAndPartyId(ti, pi, pageRequest);
+        else if (si == 0 && di == 0 && ti == 0 && mi != 0 && pi != 0)
+          	page = articleRepository. findByMoodIdAndPartyId(mi, pi, pageRequest);
 
         else if (si == 0 && di != 0 && ti != 0 && mi != 0 && pi == 0)
           	page = articleRepository. findByLocationIdAndTagIdAndMoodId(di, ti, mi, pageRequest);
@@ -159,7 +179,39 @@ public class ArticleService {
         for (int i = 0; i < articleDtos.size(); ++i) {
             Article article = articleEntities.get(i);
             ArticleDto articleDto = articleDtos.get(i);
-            articleDto.setUserName(article.getUser().getName());
+            articleDto.setUserName(article.getUser().getNickName());
+        }
+        return articleDtos;
+    }
+
+    public List<ArticleDto> findAll2(Pagination pagination) {
+        int pg = pagination.getPg() - 1, sz = pagination.getSz();
+        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        Page<Article> page = null;
+            page = articleRepository.findByBoardId(1, pageRequest);
+        pagination.setRecordCount((int)page.getTotalElements());
+        List<Article> articleEntities = page.getContent();
+        List<ArticleDto> articleDtos = modelMapper.mapList(articleEntities, ArticleDto.class);
+        for (int i = 0; i < articleDtos.size(); ++i) {
+            Article article = articleEntities.get(i);
+            ArticleDto articleDto = articleDtos.get(i);
+            articleDto.setUserName(article.getUser().getNickName());
+        }
+        return articleDtos;
+    }
+
+    public List<ArticleDto> findAll3(Pagination pagination) {
+        int pg = pagination.getPg() - 1, sz = pagination.getSz();
+        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        Page<Article> page = null;
+            page = articleRepository.findByBoardId(2, pageRequest);
+        pagination.setRecordCount((int)page.getTotalElements());
+        List<Article> articleEntities = page.getContent();
+        List<ArticleDto> articleDtos = modelMapper.mapList(articleEntities, ArticleDto.class);
+        for (int i = 0; i < articleDtos.size(); ++i) {
+            Article article = articleEntities.get(i);
+            ArticleDto articleDto = articleDtos.get(i);
+            articleDto.setUserName(article.getUser().getNickName());
         }
         return articleDtos;
     }

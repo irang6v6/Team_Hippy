@@ -1,5 +1,7 @@
 package net.skhu.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import net.skhu.entity.Comment;
 import net.skhu.model.ArticleEdit;
 import net.skhu.model.Pagination;
 import net.skhu.repository.ArticleRepository;
+import net.skhu.repository.CommentRepository;
 import net.skhu.repository.LocationArticleRepository;
 import net.skhu.repository.MoodRepository;
 import net.skhu.repository.PartyRepository;
@@ -33,6 +38,7 @@ public class ArticleController {
     @Autowired MoodRepository moodRepository;
     @Autowired PartyRepository partyRepository;
     @Autowired ArticleRepository articleRepository;
+    @Autowired CommentRepository commentRepository;
 
     @RequestMapping("list")
     public String list(Model model, Pagination pagination) {
@@ -51,10 +57,30 @@ public class ArticleController {
     	var permission = articleService.getCurrentUserPermission(id);
         model.addAttribute("board", boardService.findById(pagination.getBd()));
         model.addAttribute("article", articleService.findById(id));
-        model.addAttribute("articles", articleRepository.findAll());
+        List<Comment> comments = commentRepository.findByArticleId(id,pagination);
+        model.addAttribute("comments", comments);
+        model.addAttribute("comment", new Comment());
+        model.addAttribute("locations", locationArticleRepository.findAll());
+        model.addAttribute("tags", tagRepository.findAll());
+        model.addAttribute("moods", moodRepository.findAll());
+        model.addAttribute("partys", partyRepository.findAll());
         model.addAttribute("permission", permission);
         return "article/detail";
     }
+
+
+    @PostMapping(value="detail", params="cmd=save")
+    public String edit(Model model,int id, Comment comment, Pagination pagination) {
+    	commentRepository.save(comment);
+        return "redirect:detail?id=" +  id + "&" + pagination.getQueryString();
+    }
+
+    @RequestMapping("delete2")
+    public String delete(Model model, @RequestParam("id") int id, int k_id, Pagination pagination) {
+    	commentRepository.deleteById(id);
+    	return "redirect:detail?id=" +  k_id + "&" + pagination.getQueryString();
+    }
+
 
     @GetMapping("create")
     public String create(Model model, Pagination pagination) {

@@ -80,9 +80,10 @@ padding: 10px 15px 7px 15px;
           <form:input path="email" placeholder="이메일 주소를 입력하세요" />
           <form:errors path="email" class="error" />
         </div>
-                <div>
+        <div>
           <label>닉네임:</label>
-          <input type="text" placeholder="닉네임을 입력하세요">
+          <form:input path="nickName" placeholder="닉네임을 입력하세요" />
+          <form:errors path="nickName" class="error" />
         </div>
         <button type="submit" class="btn2 blue"><i class="fa fa-user-plus"></i> 회원가입</button>
         <a href="${R}" class="btn2 cyan"><i class="fa fa-google"></i> google 계정으로 가입</a>

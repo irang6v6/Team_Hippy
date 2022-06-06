@@ -10,6 +10,7 @@ public class ArticleDto {
     int no;
     String title;
     String userName;
+    String userNickName;
     Date modifiedTime;
     String body;
     int locationId;

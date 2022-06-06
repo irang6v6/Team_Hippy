@@ -19,6 +19,7 @@ public class MyUserDetails implements UserDetails {
     final boolean credentialsNonExpired = true;
     final String password;
     final String username;
+    final String nickname;
     final boolean isEnabled;
     Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
@@ -30,6 +31,7 @@ public class MyUserDetails implements UserDetails {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + userRole.getRole()));
         this.username = user.getLoginName();
         this.password = user.getPassword();
+        this.nickname = user.getNickName();
         this.isEnabled = user.isEnabled();
 
         this.user = user;
