@@ -9,7 +9,6 @@ import net.skhu.entity.Article;
 public interface ArticleRepository extends JpaRepository<Article, Integer>  {
 
     Page<Article> findByBoardId(int boardId, Pageable pageable);
-
     Page<Article> findByLocationId(int locationId, Pageable pageable);
     Page<Article> findByTagId(int tagId, Pageable pageable);
     Page<Article> findByMoodId(int moodId, Pageable pageable);

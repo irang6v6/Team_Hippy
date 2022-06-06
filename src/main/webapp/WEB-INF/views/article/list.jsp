@@ -121,20 +121,16 @@ td:nth-child(1), th:nth-child(1) {
 					</thead>
 					<tbody>
 						<c:forEach var="article" items="${ articles }">
-							<c:set var="l" value="${ article.locationId }" />						
-							<c:set var="t" value="${ article.tagId }" />
-							<c:set var="m" value="${ article.moodId }" />
-							<c:set var="p" value="${ article.partyId }" />
 							<tr data-url="detail?id=${article.id }&${pagination.queryString}">
 								<td>${ article.no }</td>
 								<td>${ article.title }</td>
 								<td>${ article.userName }</td>
 								<td><fmt:formatDate value="${ article.modifiedTime }"
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
-								<td>${ locations[l-1].location }</td>
-								<td>${ tags[t-1].tagName}</td>
-								<td>${ moods[m-1].mood }</td>
-								<td>${ partys[p-1].party }</td>
+								<td>${ article.locationId }</td>
+								<td>${ article.tagId }</td>
+								<td>${ article.moodId }</td>
+								<td>${ article.partyId }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

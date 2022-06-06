@@ -18,7 +18,6 @@ public class Comment {
 
     String user;
     String content;
-    String pwd;
 
     @ManyToOne
     @JoinColumn(name = "articleId")
