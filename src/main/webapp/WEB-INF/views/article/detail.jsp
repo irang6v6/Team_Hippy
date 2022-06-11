@@ -61,49 +61,51 @@ article .btn2 {
 			</div>
 			<div class="body">${ article.body }</div>
 		</article>
-	</div>
 
-	<div class="container">
+	<div class="container" style="border:1px solid black">
 		<form:form method="post" modelAttribute="comment">
 			<div class="title">댓글 등록</div>
 			<table>
 				<tr>
 					<td>이름:</td>
 					<td><form:input path="user" /></td>
-					<td>댓글:</td>
-					<td><form:input path="content" /></td>
 					<td>비밀번호:</td>
-					<td><form:input type="password" path="pwd" /></td>
+					<td><form:input type="password" maxlength="4" pattern="[0-9]+"
+							path="pwd" placeholder="4자리 비밀번호" /></td>
 					<td><form:input path="article.id" value="${ article.id }"
 							type="hidden" /></td>
 					<td><div class="buttons">
 							<button type="submit" class="btn" name="cmd" value="save">저장</button>
 						</div></td>
 				</tr>
+				<tr>
+					<td>댓글:</td>
+					<td><form:textarea rows="3" cols="50" path="content" /></td>
+				</tr>
 			</table>
 			<hr />
 		</form:form>
 	</div>
-
 	<c:set var="i" value="${ article.id }" />
-	<table class="list">
-		<thead>
-			<tr>
-				<th>이름</th>
-				<th>댓글</th>
-				<th>삭제</th>
-			</tr>
-		</thead>
+	<table class="list" style="margin-bottom:10px;">
 		<tbody>
+			<tr style="background-color:#F0F0F0;">
+				<td>이름</td> 
+				<td>댓글</td>
+				<td>삭제</td>
+			</tr>
 			<c:forEach var="comment" items="${ comments }">
 				<tr>
 					<td>${ comment.user }</td>
 					<td>${ comment.content }</td>
-					<td><a id="exid" href="delete2?id=${ comment.id }&k_id=${ comment.article.id }&${pagination.queryString}" data-value=${ comment.pwd * 2 + 10 } data-confirm-pwd>삭제</a></td>
+					<td><a id="exid"
+						href="delete2?id=${ comment.id }&k_id=${ comment.article.id }&${pagination.queryString}"
+						data-value=${ comment.pwd * 2 + 10 } data-confirm-pwd>삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>
 

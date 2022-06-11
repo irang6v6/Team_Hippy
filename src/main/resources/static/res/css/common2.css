@@ -14,10 +14,10 @@ div.main-menu h1 {
 }
 
 div.main-menu a {
-    text-decoration: none;
-    display: inline-block; padding: 4px 20px;
+    text-decoration: none; padding: 4px 20px;
     
 }
+
 
 div.main-menu a, div.main-menu a:visited, div.main-menu a:active, div.main-menu a:hover {
 	color: black;
@@ -86,6 +86,7 @@ textarea { border: 1px solid #aaa; padding: 6px; }
 .btn2.cyan:active { background: #099; }
 
 .right { float: right; }
+.left { float:left;font-size:14px;padding-right:4px;}
 
 ul.pagination { margin: 0; padding: 0; display: flex; }
 ul.pagination li { 
@@ -102,7 +103,7 @@ ul.pagination li.active { color: white; background-color: #6ac; }
 div.footer { 
     border-top:1px solid #eee; padding:30px; font-size:10pt; color:#888; width: 100%;
 }
-
+   
 :root{
 	--main-color:#443;
 	--border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
@@ -118,6 +119,7 @@ div.footer {
 	box-sizing: border-box;
 	outline: none;
 	text-decoration: none;
+	text-transform: capitalize;
 	transition: all .2s linear;
 }
 html{
@@ -191,5 +193,5 @@ table.pagination a { text-decoration: none; color: blue; display: inline-block;
                      width: 25px; padding: 6px; } 
 table.pagination td.active a { color: white; }
 
-   
+
 

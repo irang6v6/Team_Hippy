@@ -57,6 +57,8 @@ header .btn{
 	cursor: pointer;
 	display: none;
 }
+.right { float: right; }
+.left { float:left;font-size:14px;padding-right:4px;}
 div.container { width: 800px; margin: 10px auto; font-size: 10pt; }
 
 .btn { padding: 0.4em 1em; border: 1px solid gray;           

@@ -144,8 +144,6 @@ td:nth-child(1), th:nth-child(1) {
 					recordCount="${ pagination.recordCount }" queryStringName="pg" />
 			</div>
 		</div>
-
-		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</div>
 
 </body>

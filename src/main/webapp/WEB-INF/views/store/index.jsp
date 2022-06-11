@@ -16,8 +16,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
-<script src="https://kit.fontawesome.com/92bb2bf275.js"
-	crossorigin="anonymous"></script>
 <style>
 form {
 	margin-bottom: 5px;
@@ -106,7 +104,8 @@ th {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="store" items="${ stores }" begin="${fn:length(stores) - 5 }" end="${fn:length(stores)}">
+				<c:set var="s" value="${ fn:length(stores)>5? 5:fn:length(stores)}" />
+				<c:forEach var="store" items="${ stores }" begin="${fn:length(stores) - s }" end="${fn:length(stores)}">
 					<tr data-url="store/edit?id=${store.id}&${pagination.queryString}">
 						<td>${ store.id }</td>
 						<td>${ store.name }</td>
@@ -133,7 +132,8 @@ th {
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="article" items="${ articles }"  begin="${fn:length(articles) - 5}" end="${fn:length(articles)}">
+						<c:set var="i" value="${ fn:length(articles)>5? 5:fn:length(articles)}" />
+						<c:forEach var="article" items="${ articles }"  begin="${fn:length(articles) - i}" end="${fn:length(articles)}">
 													<c:set var="l" value="${ article.locationId }" />						
 							<c:set var="t" value="${ article.tagId }" />
 							<c:set var="m" value="${ article.moodId }" />
@@ -167,8 +167,9 @@ th {
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="after" items="${ afters }">
-																			<c:set var="l" value="${ after.locationId }" />						
+						<c:set var="j" value="${ fn:length(afters)>5? 5:fn:length(afters)}" />
+						<c:forEach var="after" items="${ afters }" begin="${fn:length(afters) - j}" end="${fn:length(afters)}">
+							<c:set var="l" value="${ after.locationId }" />						
 							<c:set var="t" value="${ after.tagId }" />
 							<c:set var="m" value="${ after.moodId }" />
 							<c:set var="p" value="${ after.partyId }" />
