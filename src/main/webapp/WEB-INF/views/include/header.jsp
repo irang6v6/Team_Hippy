@@ -23,7 +23,5 @@
         <span>
       <a class="left" href="${R}logout_processing" style="font-size: 12px;">로그아웃</a></span>
     </sec:authorize>
-    
-
 </header>
 

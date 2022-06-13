@@ -68,7 +68,7 @@ div.input {
 div.input i {
 	position: absolute;
 	left: 15px;
-	top: 0.7em;
+	top: 1.5em;
 	color: gray;
 }
 

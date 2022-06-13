@@ -29,7 +29,6 @@ public class ArticleService {
     @Autowired MyModelMapper modelMapper;
 
     private static Sort orderBy = Sort.by(Sort.Direction.DESC, "id");
-    private static Sort reverseBy = Sort.by(Sort.Direction.ASC, "id");
 
     public ArticleDto findById(int id) {
         var article = articleRepository.findById(id).get();
@@ -186,7 +185,7 @@ public class ArticleService {
 
     public List<ArticleDto> findAll2(Pagination pagination) {
         int pg = pagination.getPg() - 1, sz = pagination.getSz();
-        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        var pageRequest = PageRequest.of(pg, sz, orderBy);
         Page<Article> page = null;
             page = articleRepository.findByBoardId(1, pageRequest);
         pagination.setRecordCount((int)page.getTotalElements());
@@ -202,7 +201,7 @@ public class ArticleService {
 
     public List<ArticleDto> findAll3(Pagination pagination) {
         int pg = pagination.getPg() - 1, sz = pagination.getSz();
-        var pageRequest = PageRequest.of(pg, sz, reverseBy);
+        var pageRequest = PageRequest.of(pg, sz, orderBy);
         Page<Article> page = null;
             page = articleRepository.findByBoardId(2, pageRequest);
         pagination.setRecordCount((int)page.getTotalElements());

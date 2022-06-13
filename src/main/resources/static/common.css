@@ -1,3 +1,4 @@
+body {background: #ffe;}
 :root{
 	--main-color:#443;
 	--border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
@@ -13,7 +14,6 @@
 	box-sizing: border-box;
 	outline: none;
 	text-decoration: none;
-	text-transform: capitalize;
 	transition: all .2s linear;
 }
 html{
@@ -28,12 +28,13 @@ html{
 	align-items: center;
 	justify-content: space-between;
 	background-color: #fff;
-	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 	padding: 2rem 9%;
+	background-color:#FF6F26;
+	color: #FFFFFF;
 }
 
 .header .logo{
-	color: var(--main-color);
+	color: #FFFFFF;
 	font-size: 2.3rem;
 }
 
@@ -44,7 +45,7 @@ html{
 .header .navbar a{
 	margin: 0 1rem;
 	font-size: 1.7rem;
-	color: var(--main-color);
+	color: #FFFFFF;
 }
 
 header .btn{
@@ -58,13 +59,19 @@ header .btn{
 	display: none;
 }
 .right { float: right; }
-.left { float:left;font-size:14px;padding-right:4px;}
-div.container { width: 800px; margin: 10px auto; font-size: 10pt; }
+.left { float:left;font-size:14px;padding-right:4px;color:#FFFFFF;}
+div.container { width: 800px; margin: 0 auto; font-size: 10pt;background:white;height:100%; }
+div.econtainer { width: 600px; margin: 100px auto; font-size: 10pt;background:white;height:100%; }
 
-.btn { padding: 0.4em 1em; border: 1px solid gray;           
-       border-radius: 0.5em; background: linear-gradient(#fff, #ddd); 
-       text-decoration: none; color: black;
-       display: inline-block; }
+.btn { padding: 0.4em 1em;        
+       border-radius: 0.5em;
+       outline:0;
+       border: 0;
+       text-decoration: none;
+       background:orange;
+       display: inline-block; 
+       color:white;
+       }
        
 .btn:active {
       -ms-transform: translateY(2px);
@@ -74,19 +81,24 @@ div.container { width: 800px; margin: 10px auto; font-size: 10pt; }
 
 table.list { border-collapse: collapse; width: 100%; }
 table.list td { padding: 6px; border: 1px solid #ccc; }
-table.list th { padding: 6px; border: 1px solid #ccc;  background-color: #eee; }
+table.list th { padding: 6px; border: 1px solid #ccc;  background-color: orange; color:white; }
 
 input { padding: 4px; }
 select { padding: 4px; }
 
-tr[data-url]:hover { cursor: pointer; background-color: #ffe; }
+tr[data-url]:hover { cursor: pointer; background-color: orange; }
 .box { box-shadow: 0 0 4px lightgray, 2px 2px 4px gray; }
 
-table.pagination { border-collapse: collapse; margin-top: 1em; }
-table.pagination td { border: 1px solid #ccc; text-align: center; }
-table.pagination td.active { background-color: #48f; }
-table.pagination a { text-decoration: none; color: blue; display: inline-block; 
-                     width: 25px; padding: 6px; } 
-table.pagination td.active a { color: white; }
+ul.pagination { margin-top: 8px; padding: 0; display: flex; }
+ul.pagination li { 
+  font-size: 11pt; color: #08f;
+  display: inline-block; border: 1px solid #ddd; border-right: none;
+  padding: 0.5em 0.9em; 
+  text-align: center;
+  cursor: pointer;
+}
+ul.pagination li:last-child { border: 1px solid #ddd; }
 
+ul.pagination li.active { color: white; background-color: #6ac; }
+ul.pagination li:hover { color: white; background-color: #26F; }  
 

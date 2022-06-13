@@ -14,7 +14,6 @@
 div.panel {
 	width: 1100px;
 }
-
 select:nth-child(1) {
 	margin-right: 150px;
 }
@@ -34,7 +33,7 @@ td, th {
 }
 
 th {
-	background-color: #eee;
+	background-color: orange;color:white;
 }
 
 td:nth-child(1), th:nth-child(1) {
@@ -140,8 +139,8 @@ td:nth-child(1), th:nth-child(1) {
 					</tbody>
 				</table>
 
-				<my:pagination pageSize="${ pagination.sz }"
-					recordCount="${ pagination.recordCount }" queryStringName="pg" />
+	<my:pagination pageSize="${ pagination.sz }"
+			recordCount="${ pagination.recordCount }" queryStringName="pg" />
 			</div>
 		</div>
 	</div>

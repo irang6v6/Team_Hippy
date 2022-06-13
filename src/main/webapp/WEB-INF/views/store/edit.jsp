@@ -22,15 +22,16 @@ form {
 div.title {
 	font-size: 20pt;
 	padding: 10px;
-	background-color: #eee;
+	background-color: orange;
+	color: white;
 }
 
 table {
-	margin: 20px;
+	margin: 20px;background:white;
 }
 
 td {
-	min-width: 100px;
+	min-width: 60px;
 	padding: 5px;
 }
 
@@ -45,17 +46,17 @@ div.buttons {
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
-	<div class="container">
+	<div class="econtainer">
 		<form:form method="post" modelAttribute="store">
 			<div class="title">가게 ${ store.id > 0 ? "정보" : "등록" }</div>
 			<table>
 				<tr>
 					<td>이름:</td>
-					<td><form:input path="name" />${store.name}</td>
+					<td><form:input path="name" /></td>
 				</tr>
 				<tr>
 					<td>주소:</td>
-					<td><form:input path="locate" />${store.locate}</td>
+					<td><form:input path="locate"  style="width: 480px;"/></td>
 				</tr>
 				<tr>
 					<td>구:</td>
@@ -66,7 +67,7 @@ div.buttons {
 					<td>태그:</td>
 					<td>
 					<form:radiobutton path="tag.id" value="1" label="#카페" />
-					<form:radiobutton path="tag.id" value="2" label="#맛잡" /> 
+					<form:radiobutton path="tag.id" value="2" label="#맛집" /> 
 					<form:radiobutton path="tag.id" value="3" label="#샵" /> 
 					<form:radiobutton path="tag.id" value="4" label="#전시" />
 					<form:radiobutton path="tag.id" value="5" label="#공연" />
@@ -74,7 +75,7 @@ div.buttons {
 					</td>
 				<tr>
 					<td>시간:</td>
-					<td><form:input path="time" />${store.time}</td>
+					<td><form:input path="time" /></td>
 				</tr>
 				<tr>
 					<td>분위기:</td>

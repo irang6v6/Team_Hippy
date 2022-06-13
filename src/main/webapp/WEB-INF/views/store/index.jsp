@@ -80,7 +80,7 @@ td, th {
 }
 
 th {
-	background-color: #eee;
+	background-color: orange;color:white;
 }
 </style>
 </head>
@@ -104,8 +104,8 @@ th {
 				</tr>
 			</thead>
 			<tbody>
-				<c:set var="s" value="${ fn:length(stores)>5? 5:fn:length(stores)}" />
-				<c:forEach var="store" items="${ stores }" begin="${fn:length(stores) - s }" end="${fn:length(stores)}">
+				<c:set var="s" value="${ fn:length(stores)>=5? 4:fn:length(stores)}" />
+				<c:forEach var="store" items="${ stores }" begin="0" end="${ s }">
 					<tr data-url="store/edit?id=${store.id}&${pagination.queryString}">
 						<td>${ store.id }</td>
 						<td>${ store.name }</td>
@@ -132,8 +132,8 @@ th {
 						</tr>
 					</thead>
 					<tbody>
-						<c:set var="i" value="${ fn:length(articles)>5? 5:fn:length(articles)}" />
-						<c:forEach var="article" items="${ articles }"  begin="${fn:length(articles) - i}" end="${fn:length(articles)}">
+						<c:set var="i" value="${ fn:length(articles)>=5? 4:fn:length(articles)}" />
+						<c:forEach var="article" items="${ articles }"  begin="0" end="${ i }">
 													<c:set var="l" value="${ article.locationId }" />						
 							<c:set var="t" value="${ article.tagId }" />
 							<c:set var="m" value="${ article.moodId }" />
@@ -167,8 +167,8 @@ th {
 						</tr>
 					</thead>
 					<tbody>
-						<c:set var="j" value="${ fn:length(afters)>5? 5:fn:length(afters)}" />
-						<c:forEach var="after" items="${ afters }" begin="${fn:length(afters) - j}" end="${fn:length(afters)}">
+						<c:set var="j" value="${ fn:length(afters)>=5? 4:fn:length(afters)}" />
+						<c:forEach var="after" items="${ afters }" begin="0" end="${ j }">
 							<c:set var="l" value="${ after.locationId }" />						
 							<c:set var="t" value="${ after.tagId }" />
 							<c:set var="m" value="${ after.moodId }" />

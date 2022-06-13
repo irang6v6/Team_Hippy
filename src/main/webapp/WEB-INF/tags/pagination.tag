@@ -50,12 +50,10 @@ int n = base + 11;
 if (n <= pageCount)
     pages.add(new Page(n, "&gt;"));
 %>
-<table class="pagination">
-  <tr>
-    <% for (Page p : pages) { %>
-     <td class='<%= p.page == currentPage ? "active" : "" %>'>
-        <a href='<%= url.replace("@@@", String.valueOf(p.page)) %>'> <%= p.label %> </a>
-    </td><% } %>
-  </tr>
-</table>
+<ul class="pagination">
+  <% for (Page p : pages) { %>
+  <li class='<%= p.page == currentPage ? "active" : "" %>'
+      data-url='<%= url.replace("@@@", String.valueOf(p.page)) %>'> <%= p.label %>
+  </li><% } %>
+</ul>
 

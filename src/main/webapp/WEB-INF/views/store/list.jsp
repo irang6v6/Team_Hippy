@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="${R}common.css">
+<link rel="stylesheet"  href="${R}res/css/common2.css" />
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
@@ -21,6 +21,9 @@ form {
 
 a.btn {
 	float: right;
+}
+th {
+background-color:orange;
 }
 </style>
 </head>

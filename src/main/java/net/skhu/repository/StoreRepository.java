@@ -15,7 +15,7 @@ public interface StoreRepository  extends JpaRepository<Store, Integer> {
 
     public default List<Store> findAll(Pagination pagination) {
         Page<Store> page = this.findAll(PageRequest.of(pagination.getPg() - 1, pagination.getSz(),
-                                           Sort.Direction.ASC, "id"));
+                                           Sort.Direction.DESC, "id"));
         pagination.setRecordCount((int)page.getTotalElements());
         return page.getContent();
     }

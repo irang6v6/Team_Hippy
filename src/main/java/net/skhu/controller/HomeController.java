@@ -42,7 +42,7 @@ public class HomeController {
 
 	@RequestMapping({"/", "index"})
 	public String index(Model model, Pagination pagination) {
-		List<Store> stores = storeRepository.findAll();
+		List<Store> stores = storeRepository.findByLocationIdAndTagId(pagination);
 		model.addAttribute("stores", stores);
         model.addAttribute("articles", articleService.findAll2(pagination));
         model.addAttribute("afters", articleService.findAll3(pagination));

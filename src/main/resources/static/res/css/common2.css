@@ -1,4 +1,4 @@
-body { background-color: #eee; padding: 0; margin-top: 2px; }
+body { background-color: #ffe; padding: 0; margin-top: 2px; }
 
 div.main-menu {
     border-bottom: 1px solid #ccc; padding: 10px 0px;
@@ -30,6 +30,7 @@ div.main-menu a:hover {
 div.container2 {
 	width: 1200px; margin: 0px auto; 
 	background-color: white;
+	height: 100%;
 }
 
 select { border: 1px solid #aaa; padding: 6px 15px; font-size: 11pt; }
@@ -61,7 +62,7 @@ textarea { border: 1px solid #aaa; padding: 6px; }
 }
 
 .btn2.blue { 
-    color: white; border: none; background: linear-gradient(#8cf, #05c); 
+    color: white; border: none; background: orange; 
 }
 .btn2.blue:active { background: #05c; }
 
@@ -86,19 +87,7 @@ textarea { border: 1px solid #aaa; padding: 6px; }
 .btn2.cyan:active { background: #099; }
 
 .right { float: right; }
-.left { float:left;font-size:14px;padding-right:4px;}
-
-ul.pagination { margin: 0; padding: 0; display: flex; }
-ul.pagination li { 
-  font-size: 11pt; color: #08f;
-  display: inline-block; border: 1px solid #ddd; border-right: none;
-  padding: 0.5em 0.9em; 
-  text-align: center;
-  cursor: pointer;
-}
-ul.pagination li:last-child { border: 1px solid #ddd; }
-
-ul.pagination li.active { color: white; background-color: #6ac; } 
+.left { float:left;font-size:14px;padding-right:4px;color:#FFFFFF;}
 
 div.footer { 
     border-top:1px solid #eee; padding:30px; font-size:10pt; color:#888; width: 100%;
@@ -119,7 +108,6 @@ div.footer {
 	box-sizing: border-box;
 	outline: none;
 	text-decoration: none;
-	text-transform: capitalize;
 	transition: all .2s linear;
 }
 html{
@@ -136,10 +124,12 @@ html{
 	background-color: #fff;
 	box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 	padding: 2rem 9%;
+	background-color:#FF6F26;
+	color: #FFFFFF;
 }
 
 .header .logo{
-	color: var(--main-color);
+	color: #FFFFFF;
 	font-size: 2.3rem;
 }
 
@@ -150,7 +140,7 @@ html{
 .header .navbar a{
 	margin: 0 1rem;
 	font-size: 1.7rem;
-	color: var(--main-color);
+	color: #FFFFFF;
 }
 
 header .btn{
@@ -163,22 +153,25 @@ header .btn{
 	cursor: pointer;
 	display: none;
 }
-div.container { width: 800px; margin: 10px auto; font-size: 10pt; }
+div.container { width: 800px; margin: 0 auto; font-size: 10pt;background:white; }
 
-.btn { padding: 0.4em 1em; border: 1px solid gray;           
-       border-radius: 0.5em; background: linear-gradient(#fff, #ddd); 
-       text-decoration: none; color: black;
+
+.btn { padding: 0.4em 1em; 
+       border-radius: 0.5em;
+       outline: 0;
+       border: 0;
+       text-decoration: none; color: #FFFFFF;background:orange;color:white;
        display: inline-block; }
        
 .btn:active {
       -ms-transform: translateY(2px);
       -webkit-transform: translateY(2px);
       transform: translateY(2px);
-      background: #ccc; }
+      background: orange; }
 
 table.list { border-collapse: collapse; width: 100%; }
 table.list td { padding: 6px; border: 1px solid #ccc; }
-table.list th { padding: 6px; border: 1px solid #ccc;  background-color: #eee; }
+table.list th { padding: 6px; border: 1px solid #ccc;  background-color: #FF6F26; color:white;}
 
 input { padding: 4px; }
 select { padding: 4px; }
@@ -186,12 +179,18 @@ select { padding: 4px; }
 tr[data-url]:hover { cursor: pointer; background-color: #ffe; }
 .box { box-shadow: 0 0 4px lightgray, 2px 2px 4px gray; }
 
-table.pagination { border-collapse: collapse; margin-top: 1em; }
-table.pagination td { border: 1px solid #ccc; text-align: center; }
-table.pagination td.active { background-color: #48f; }
-table.pagination a { text-decoration: none; color: blue; display: inline-block; 
-                     width: 25px; padding: 6px; } 
-table.pagination td.active a { color: white; }
+ul.pagination { margin: 0; padding: 0; display: flex; }
+ul.pagination li { 
+  font-size: 11pt;
+  display: inline-block; border: 1px solid #ddd; border-right: none;
+  padding: 0.5em 0.9em; 
+  text-align: center;
+  cursor: pointer;
+}
+ul.pagination li:last-child { border: 1px solid #ddd; }
+
+ul.pagination li.active { color: white; background-color: #FF6F26; }
+ul.pagination li:hover { color: white; background-color: orange; }  
 
 
 

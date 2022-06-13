@@ -91,8 +91,6 @@ article .btn2 {
 				})
 			</script>
 		</article>
-
-		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</div>
 
 </body>
