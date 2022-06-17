@@ -3,7 +3,7 @@
 팀 이름: 힙피<br/>
 프로젝트 이름: 힙피<br/>
 프로젝트 주제: 핫플/힙플 정보 제공<br/>
-팀원: 남주혜 , 이병찬, 장해찬<br/>
+팀원: 남주혜( branch: jh, @juhye6v6) , 이병찬( branch: bc, @Ezpz97), 장해찬( branch: hc, @bakyjang)<br/>
 <br/>
 개발환경<br/>
 Mysql : 8.0.28 / AWS RDS <br/>
